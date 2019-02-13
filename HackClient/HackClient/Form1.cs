@@ -17,7 +17,7 @@ namespace HackClient
         public Form1()
         {
             InitializeComponent();
-            ProcessID=mMemory.getProcIDFromName("Minetest engine (32 Bit)");
+            ProcessID = mMemory.getProcIDFromName("minetest");
             BackgroundWorker backgroundWorker = new BackgroundWorker
             {
                 WorkerReportsProgress = true,
@@ -25,6 +25,7 @@ namespace HackClient
             };
             backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
             backgroundWorker.ProgressChanged += BackgroundWorkerOnProgressChanged;
+            backgroundWorker.RunWorkerAsync();
         }
 
         private void BackgroundWorkerOnProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -38,14 +39,26 @@ namespace HackClient
             BackgroundWorker worker = (BackgroundWorker)sender;
             while (!worker.CancellationPending)
             {
-
+                bool Processfound = false;
                 //Do your stuff here
-                mMemory.OpenProcess(ProcessID);
-                mMemory.readUInt(,null)
-        // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
-    }
+                if (ProcessID != 1 && ProcessID != 0)
+                {
+                    Processfound = mMemory.OpenProcess(ProcessID);
+                }
+                if (Processfound)
+                {
+                    //mMemory.readUInt(, null);
+
+                }
+                // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
+            }
         }
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
