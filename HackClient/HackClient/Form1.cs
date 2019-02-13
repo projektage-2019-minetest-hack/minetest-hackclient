@@ -15,6 +15,7 @@ namespace HackClient
     {
         public Mem mMemory = new Mem();
         public int ProcessID = -1;
+        
         public Form1()
         {
             InitializeComponent();
@@ -40,17 +41,7 @@ namespace HackClient
             BackgroundWorker worker = (BackgroundWorker)sender;
             while (!worker.CancellationPending)
             {
-                bool Processfound = false;
-                //Do your stuff here
-                if (ProcessID != 1 && ProcessID != 0)
-                {
-                    Processfound = mMemory.OpenProcess(ProcessID);
-                }
-                if (Processfound)
-                {
-                    //mMemory.readUInt(, null);
 
-                }
                 // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
             }
         }
@@ -60,6 +51,11 @@ namespace HackClient
         }
 
         private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Set_HP_Click(object sender, EventArgs e)
         {
 
         }
