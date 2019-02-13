@@ -8,7 +8,12 @@ namespace HackClient
 {
     class Player
     {
-        int offsetLeben;
+        public string offsetLeben;
+        public string offsetx;
+        public string offsety;
+        public string offsetz;
+        public string offsetFirstItem;
+
         public Player()
         {
 
