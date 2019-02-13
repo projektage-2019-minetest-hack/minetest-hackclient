@@ -40,12 +40,11 @@ namespace HackClient
             memory.writeMemory(player.offsetz, "float", z);
         }
 
-        public void toggleGodmode()
+        public void toggleGodmode(bool newstatus)
         {
-            if (immortal)
+            if (newstatus)
             {
                 immortal = false;
-                godmode.Abort();
             }
             else
             {
