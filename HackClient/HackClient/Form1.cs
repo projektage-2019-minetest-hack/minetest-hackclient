@@ -14,13 +14,15 @@ namespace HackClient
     public partial class Form1 : Form
     {
         public Mem mMemory = new Mem();
-        public int ProcessID = -1;
-        
+
+        Player mPlayer = new Player();
+        public BackgroundWorker backgroundWorker;
+
         public Form1()
         {
             InitializeComponent();
-            ProcessID = mMemory.getProcIDFromName("minetest");
-            BackgroundWorker backgroundWorker = new BackgroundWorker
+            mPlayer.offsetLeben = 1;
+            backgroundWorker = new BackgroundWorker
             {
                 WorkerReportsProgress = true,
                 WorkerSupportsCancellation = true
@@ -38,12 +40,15 @@ namespace HackClient
 
         private void BackgroundWorkerOnDoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker worker = (BackgroundWorker)sender;
-            while (!worker.CancellationPending)
+             
+            while (!backgroundWorker.CancellationPending)
             {
-
-                // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
-            }
+                this.Invoke((MethodInvoker)delegate ()
+                    {
+                        //LHP.Text = MemoryHandler.GetHP();
+                        // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
+                    });
+                }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -57,7 +62,12 @@ namespace HackClient
 
         private void Set_HP_Click(object sender, EventArgs e)
         {
+            //mPlayer.offsetLeben =Convert.ToInt32( numericUpDown1.Value);
+        }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            backgroundWorker.CancelAsync();
         }
     }
 }
