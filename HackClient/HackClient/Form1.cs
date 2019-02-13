@@ -13,15 +13,15 @@ namespace HackClient
 {
     public partial class Form1 : Form
     {
-        public Mem mMemory = new Mem();
-
+        //public Mem mMemory = new Mem();
+        private MemoryHandler mHandler = new MemoryHandler();
         Player mPlayer = new Player();
         public BackgroundWorker backgroundWorker;
 
         public Form1()
         {
             InitializeComponent();
-            mPlayer.offsetLeben = 1;
+            
             backgroundWorker = new BackgroundWorker
             {
                 WorkerReportsProgress = true,
@@ -68,6 +68,12 @@ namespace HackClient
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             backgroundWorker.CancelAsync();
+        }
+
+        private void Check_Immortal_CheckedChanged(object sender, EventArgs e)
+        {
+            //mHandler.toggleGodmode(Check_Immortal.Checked);
+            mHandler.toggleGodmode();
         }
     }
 }

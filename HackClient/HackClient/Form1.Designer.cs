@@ -39,6 +39,7 @@
             this.lHPOffset = new System.Windows.Forms.Label();
             this.L_HpValue = new System.Windows.Forms.Label();
             this.E_HP_Offset = new System.Windows.Forms.TextBox();
+            this.Check_Immortal = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -92,6 +93,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.Check_Immortal);
             this.tabPage1.Controls.Add(this.L_HpValue);
             this.tabPage1.Controls.Add(this.LHP);
             this.tabPage1.Controls.Add(this.numericUpDown1);
@@ -150,6 +152,17 @@
             this.E_HP_Offset.Size = new System.Drawing.Size(100, 20);
             this.E_HP_Offset.TabIndex = 1;
             // 
+            // Check_Immortal
+            // 
+            this.Check_Immortal.AutoSize = true;
+            this.Check_Immortal.Location = new System.Drawing.Point(694, 6);
+            this.Check_Immortal.Name = "Check_Immortal";
+            this.Check_Immortal.Size = new System.Drawing.Size(57, 17);
+            this.Check_Immortal.TabIndex = 6;
+            this.Check_Immortal.Text = "Imortal";
+            this.Check_Immortal.UseVisualStyleBackColor = true;
+            this.Check_Immortal.CheckedChanged += new System.EventHandler(this.Check_Immortal_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,6 +201,7 @@
         private System.Windows.Forms.Label lHPOffset;
         private System.Windows.Forms.Label L_HpValue;
         private System.Windows.Forms.TextBox E_HP_Offset;
+        private System.Windows.Forms.CheckBox Check_Immortal;
     }
 }
 
