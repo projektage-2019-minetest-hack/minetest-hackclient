@@ -123,7 +123,7 @@ namespace HackClient
             
             ComboPlayer.Items.Clear();
 
-                mHandler.getPlayerList(Convert.ToInt32( numericUpDown2.Value));
+            mHandler.getPlayerList();
 
             
 
