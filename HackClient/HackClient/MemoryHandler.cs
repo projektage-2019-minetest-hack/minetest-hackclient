@@ -40,8 +40,9 @@ namespace HackClient
                 //while (keepGoing)
             for (int i = 0; i < 256; i++)
             {
-                long offsetofplayer = (await memory.AoBScan("E0 22 AA 00 " + i.ToString("x2") + " 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).FirstOrDefault();
-                if (offsetofplayer <= 0)
+                IEnumerable<long> thelist;
+                List<long> offsetofplayer = (await memory.AoBScan("E0 22 AA 00 " + i.ToString("x2") + " 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).ToList();
+                /*if (offsetofplayer <= 0)
                 {
                     continue;
                 }
@@ -49,7 +50,7 @@ namespace HackClient
                 {
                     Player player = new Player(offsetofplayer);
                     playerlist.Add(player);
-                }
+                }*/
                 
             }
            
