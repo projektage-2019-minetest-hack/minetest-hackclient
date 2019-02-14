@@ -15,7 +15,7 @@ namespace HackClient
     {
         //public Mem mMemory = new Mem();
         private MemoryHandler mHandler = new MemoryHandler();
-        Player mPlayer = new Player();
+        //Player mPlayer = new Player();
         public BackgroundWorker backgroundWorker;
         private bool Closing = false;
 
@@ -63,13 +63,16 @@ namespace HackClient
             backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
             backgroundWorker.ProgressChanged += BackgroundWorkerOnProgressChanged;
             backgroundWorker.RunWorkerAsync();
-
-            E_HP_Offset.Text = mPlayer.offsetLeben;
-            E_1Item_Offset.Text = mPlayer.offsetFirstItem;
-            E_X_Offset.Text = mPlayer.offsetx;
-            E_Y_Offset.Text = mPlayer.offsety;
-            E_Z_Offset.Text = mPlayer.offsetz;
-
+            LoadPlayerListwithScan();
+            if (ComboPlayer.Items.Count > 0)
+            {
+                ComboPlayer.SelectedIndex = 0;
+                E_HP_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsetLeben;
+                E_1Item_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsetFirstItem;
+                E_X_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsetx;
+                E_Y_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsety;
+                E_Z_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsetz;
+            }
         }
 
         private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,12 +101,27 @@ namespace HackClient
 
         private void BUT_SaveOffsets_Click(object sender, EventArgs e)
         {
-            mPlayer.offsetLeben = E_HP_Offset.Text;
-            mPlayer.offsetFirstItem = E_1Item_Offset.Text;
-            mPlayer.offsetx= E_X_Offset.Text;
-            mPlayer.offsety = E_Y_Offset.Text;
-            mPlayer.offsetz = E_Z_Offset.Text;
-            mHandler.player = mPlayer;
+            mHandler.playerlist[ComboPlayer.SelectedIndex].offsetLeben = E_HP_Offset.Text;
+            mHandler.playerlist[ComboPlayer.SelectedIndex].offsetFirstItem = E_1Item_Offset.Text;
+            mHandler.playerlist[ComboPlayer.SelectedIndex].offsetx= E_X_Offset.Text;
+            mHandler.playerlist[ComboPlayer.SelectedIndex].offsety = E_Y_Offset.Text;
+            mHandler.playerlist[ComboPlayer.SelectedIndex].offsetz = E_Z_Offset.Text;
+          
+        }
+
+        private void BUT_PlayerLoad_Click(object sender, EventArgs e)
+        {
+            LoadPlayerListwithScan();
+        }
+
+        private void LoadPlayerListwithScan()
+        {
+            ComboPlayer.Items.Clear();
+            mHandler.getPlayerList();
+            for(int i =0; i<mHandler.playerlist.Count;i++)
+            {
+                ComboPlayer.Items.Add("Player1");//Später name aus dem jeweiligen Player
+            }
         }
     }
 }
