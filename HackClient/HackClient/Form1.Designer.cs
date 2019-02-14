@@ -34,12 +34,13 @@
             this.Set_HP = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Check_Immortal = new System.Windows.Forms.CheckBox();
+            this.L_HpValue = new System.Windows.Forms.Label();
             this.LHP = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lHPOffset = new System.Windows.Forms.Label();
-            this.L_HpValue = new System.Windows.Forms.Label();
             this.E_HP_Offset = new System.Windows.Forms.TextBox();
-            this.Check_Immortal = new System.Windows.Forms.CheckBox();
+            this.lHPOffset = new System.Windows.Forms.Label();
+            this.BUT_SaveOffsets = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -106,6 +107,26 @@
             this.tabPage1.Text = "Standart";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // Check_Immortal
+            // 
+            this.Check_Immortal.AutoSize = true;
+            this.Check_Immortal.Location = new System.Drawing.Point(694, 6);
+            this.Check_Immortal.Name = "Check_Immortal";
+            this.Check_Immortal.Size = new System.Drawing.Size(57, 17);
+            this.Check_Immortal.TabIndex = 6;
+            this.Check_Immortal.Text = "Imortal";
+            this.Check_Immortal.UseVisualStyleBackColor = true;
+            this.Check_Immortal.CheckedChanged += new System.EventHandler(this.Check_Immortal_CheckedChanged);
+            // 
+            // L_HpValue
+            // 
+            this.L_HpValue.AutoSize = true;
+            this.L_HpValue.Location = new System.Drawing.Point(37, 27);
+            this.L_HpValue.Name = "L_HpValue";
+            this.L_HpValue.Size = new System.Drawing.Size(16, 13);
+            this.L_HpValue.TabIndex = 5;
+            this.L_HpValue.Text = "---";
+            // 
             // LHP
             // 
             this.LHP.AutoSize = true;
@@ -117,6 +138,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.BUT_SaveOffsets);
             this.tabPage2.Controls.Add(this.E_HP_Offset);
             this.tabPage2.Controls.Add(this.lHPOffset);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -127,6 +149,13 @@
             this.tabPage2.Text = "Back Info";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // E_HP_Offset
+            // 
+            this.E_HP_Offset.Location = new System.Drawing.Point(79, 19);
+            this.E_HP_Offset.Name = "E_HP_Offset";
+            this.E_HP_Offset.Size = new System.Drawing.Size(100, 20);
+            this.E_HP_Offset.TabIndex = 1;
+            // 
             // lHPOffset
             // 
             this.lHPOffset.AutoSize = true;
@@ -136,32 +165,15 @@
             this.lHPOffset.TabIndex = 0;
             this.lHPOffset.Text = "HP Offset";
             // 
-            // L_HpValue
+            // BUT_SaveOffsets
             // 
-            this.L_HpValue.AutoSize = true;
-            this.L_HpValue.Location = new System.Drawing.Point(37, 27);
-            this.L_HpValue.Name = "L_HpValue";
-            this.L_HpValue.Size = new System.Drawing.Size(16, 13);
-            this.L_HpValue.TabIndex = 5;
-            this.L_HpValue.Text = "---";
-            // 
-            // E_HP_Offset
-            // 
-            this.E_HP_Offset.Location = new System.Drawing.Point(79, 19);
-            this.E_HP_Offset.Name = "E_HP_Offset";
-            this.E_HP_Offset.Size = new System.Drawing.Size(100, 20);
-            this.E_HP_Offset.TabIndex = 1;
-            // 
-            // Check_Immortal
-            // 
-            this.Check_Immortal.AutoSize = true;
-            this.Check_Immortal.Location = new System.Drawing.Point(694, 6);
-            this.Check_Immortal.Name = "Check_Immortal";
-            this.Check_Immortal.Size = new System.Drawing.Size(57, 17);
-            this.Check_Immortal.TabIndex = 6;
-            this.Check_Immortal.Text = "Imortal";
-            this.Check_Immortal.UseVisualStyleBackColor = true;
-            this.Check_Immortal.CheckedChanged += new System.EventHandler(this.Check_Immortal_CheckedChanged);
+            this.BUT_SaveOffsets.Location = new System.Drawing.Point(662, 366);
+            this.BUT_SaveOffsets.Name = "BUT_SaveOffsets";
+            this.BUT_SaveOffsets.Size = new System.Drawing.Size(112, 23);
+            this.BUT_SaveOffsets.TabIndex = 2;
+            this.BUT_SaveOffsets.Text = "Speicher Offsets";
+            this.BUT_SaveOffsets.UseVisualStyleBackColor = true;
+            this.BUT_SaveOffsets.Click += new System.EventHandler(this.BUT_SaveOffsets_Click);
             // 
             // Form1
             // 
@@ -202,6 +214,7 @@
         private System.Windows.Forms.Label L_HpValue;
         private System.Windows.Forms.TextBox E_HP_Offset;
         private System.Windows.Forms.CheckBox Check_Immortal;
+        private System.Windows.Forms.Button BUT_SaveOffsets;
     }
 }
 
