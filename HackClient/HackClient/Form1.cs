@@ -42,11 +42,21 @@ namespace HackClient
                 {
                     this.Invoke((MethodInvoker)delegate ()
                         {
-                            if (ComboPlayer.SelectedIndex != -1 && ComboPlayer.Items.Count > 0)
+                            if (tabControl1.SelectedIndex == 0)
                             {
-                                //LHP.Text = MemoryHandler.GetHP();
-                                // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
-                                LHP.Text = mHandler.getHp();
+                                string[] pos= mHandler.getPosition();
+                                lXValue.Text = pos[0];
+                                lYValue.Text = pos[1];
+                                lZValue.Text = pos[2];
+                            }
+                            else
+                            {
+                                if (ComboPlayer.SelectedIndex != -1 && ComboPlayer.Items.Count > 0)
+                                {
+                                    //LHP.Text = MemoryHandler.GetHP();
+                                    // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
+                                    LHP.Text = mHandler.getHp();
+                                }
                             }
                         });
                 }
@@ -134,17 +144,14 @@ namespace HackClient
             {
                 ComboPlayer.Items.Add(/*mHandler.playerlist[i].name*/ "Player "+ mHandler.playerlist.Count);//Später name aus dem jeweiligen Player
             }
-            if (ComboPlayer.Items.Count>0)
-            {
-                ComboPlayer.SelectedIndex = 0;
-            }
+   
         }
 
         private void ComboPlayer_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ComboPlayer.Items.Count > 0 && ComboPlayer.SelectedIndex != -1)
             {
-                mHandler.playerId = ComboPlayer.SelectedIndex;
+                mHandler.setChosenPlayer(ComboPlayer.SelectedIndex);
             }
         }
 
@@ -157,11 +164,11 @@ namespace HackClient
         {
             if (tabControl1.SelectedIndex == 0)
             {
-                //mHandler.setchoosenPlayer(-1);
+                mHandler.setChosenPlayer(-1);
             }
             else
             {
-                //mHandler.setchoosenPlayer(ComboPlayer.SelectedIndex);
+                mHandler.setChosenPlayer(ComboPlayer.SelectedIndex);
             }
             
         }

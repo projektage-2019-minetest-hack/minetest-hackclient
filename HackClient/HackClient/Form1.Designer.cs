@@ -55,6 +55,12 @@
             this.numSetHP = new System.Windows.Forms.NumericUpDown();
             this.Set_HP = new System.Windows.Forms.Button();
             this.lPos = new System.Windows.Forms.Label();
+            this.lx = new System.Windows.Forms.Label();
+            this.lY = new System.Windows.Forms.Label();
+            this.lXValue = new System.Windows.Forms.Label();
+            this.lZValue = new System.Windows.Forms.Label();
+            this.lYValue = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabClient.SuspendLayout();
@@ -94,6 +100,12 @@
             // 
             // TabClient
             // 
+            this.TabClient.Controls.Add(this.label6);
+            this.TabClient.Controls.Add(this.lYValue);
+            this.TabClient.Controls.Add(this.lZValue);
+            this.TabClient.Controls.Add(this.lXValue);
+            this.TabClient.Controls.Add(this.lY);
+            this.TabClient.Controls.Add(this.lx);
             this.TabClient.Controls.Add(this.lPos);
             this.TabClient.Location = new System.Drawing.Point(4, 22);
             this.TabClient.Name = "TabClient";
@@ -353,6 +365,60 @@
             this.lPos.TabIndex = 0;
             this.lPos.Text = "Position";
             // 
+            // lx
+            // 
+            this.lx.AutoSize = true;
+            this.lx.Location = new System.Drawing.Point(17, 47);
+            this.lx.Name = "lx";
+            this.lx.Size = new System.Drawing.Size(17, 13);
+            this.lx.TabIndex = 1;
+            this.lx.Text = "X:";
+            // 
+            // lY
+            // 
+            this.lY.AutoSize = true;
+            this.lY.Location = new System.Drawing.Point(98, 47);
+            this.lY.Name = "lY";
+            this.lY.Size = new System.Drawing.Size(17, 13);
+            this.lY.TabIndex = 2;
+            this.lY.Text = "Y:";
+            // 
+            // lXValue
+            // 
+            this.lXValue.AutoSize = true;
+            this.lXValue.Location = new System.Drawing.Point(40, 47);
+            this.lXValue.Name = "lXValue";
+            this.lXValue.Size = new System.Drawing.Size(13, 13);
+            this.lXValue.TabIndex = 3;
+            this.lXValue.Text = "--";
+            // 
+            // lZValue
+            // 
+            this.lZValue.AutoSize = true;
+            this.lZValue.Location = new System.Drawing.Point(203, 47);
+            this.lZValue.Name = "lZValue";
+            this.lZValue.Size = new System.Drawing.Size(13, 13);
+            this.lZValue.TabIndex = 4;
+            this.lZValue.Text = "--";
+            // 
+            // lYValue
+            // 
+            this.lYValue.AutoSize = true;
+            this.lYValue.Location = new System.Drawing.Point(121, 47);
+            this.lYValue.Name = "lYValue";
+            this.lYValue.Size = new System.Drawing.Size(13, 13);
+            this.lYValue.TabIndex = 5;
+            this.lYValue.Text = "--";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(162, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(17, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Z:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,6 +476,12 @@
         private System.Windows.Forms.Button Set_HP;
         private System.Windows.Forms.TabPage TabClient;
         private System.Windows.Forms.Label lPos;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lYValue;
+        private System.Windows.Forms.Label lZValue;
+        private System.Windows.Forms.Label lXValue;
+        private System.Windows.Forms.Label lY;
+        private System.Windows.Forms.Label lx;
     }
 }
 
