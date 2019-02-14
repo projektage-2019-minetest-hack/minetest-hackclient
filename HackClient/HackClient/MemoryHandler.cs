@@ -10,6 +10,8 @@ namespace HackClient
 {
     class MemoryHandler
     {
+        //private static extern short getAsyncKeyState(System.Windows.Forms.Keys vKey);
+        //private static extern short getAsyncKeyState(System.Int32 vKey);
         Mem memory = new Mem();
         public int processID = 0;
         public bool processExsits = false;
@@ -84,19 +86,44 @@ namespace HackClient
         public void setHP(string HP)
         {
             //memory.writeMemory(playerlist[playerId].offsetLeben, "2bytes", HP);
-            memory.writeMemory(chosenPlayer.offsetLeben, "2bytes", HP);
+            if (chosenPlayer.offsetLeben == "NO")
+            {
+                memory.writeMemory(chosenPlayer.offsetLeben, "2bytes", HP);
+            }
+            
         }
 
         public string getHp()
         {
             //return memory.read2Byte(playerlist[playerId].offsetLeben).ToString();
-            string HP = memory.read2Byte(chosenPlayer.offsetLeben).ToString();
-            return HP;
+            
+            if (chosenPlayer.offsetLeben == "NO")
+            {
+                    string HP = memory.read2Byte(chosenPlayer.offsetLeben).ToString();
+                    return HP;
+            }
+            else
+            {
+                return "Not Possible";
+            }
         }
 
         public void SetName()
         {
 
+        }
+
+        public string getName()
+        {
+            if(chosenPlayer.offsetName == "NO")
+            {
+                string name = memory.readString(chosenPlayer.offsetName);
+                return name;
+            }
+            else
+            {
+                return "Not Possible";
+            }
         }
 
         public void setPosition(string x, string y, string z)
@@ -106,9 +133,13 @@ namespace HackClient
             memory.writeMemory(playerlist[playerId].offsety, "float", y);
             memory.writeMemory(playerlist[playerId].offsetz, "float", z);
             */
-            memory.writeMemory(chosenPlayer.offsetx, "float", x);
-            memory.writeMemory(chosenPlayer.offsety, "float", y);
-            memory.writeMemory(chosenPlayer.offsetz, "float", z);
+            ;
+            if (chosenPlayer.offsetx == "NO")
+            {
+                memory.writeMemory(chosenPlayer.offsetx, "float", x);
+                memory.writeMemory(chosenPlayer.offsety, "float", y);
+                memory.writeMemory(chosenPlayer.offsetz, "float", z);
+            }
         }
 
         //get the position of the currently chosen
@@ -120,10 +151,22 @@ namespace HackClient
             position[1] = memory.readFloat(playerlist[playerId].offsety).ToString();
             position[2] = memory.readFloat(playerlist[playerId].offsetz).ToString();
             */
-            position[0] = memory.readFloat(chosenPlayer.offsetx).ToString();
-            position[1] = memory.readFloat(chosenPlayer.offsety).ToString();
-            position[2] = memory.readFloat(chosenPlayer.offsetz).ToString();
+            if (chosenPlayer.offsetx == "NO")
+            {
+                position[0] = memory.readFloat(chosenPlayer.offsetx).ToString();
+                position[1] = memory.readFloat(chosenPlayer.offsety).ToString();
+                position[2] = memory.readFloat(chosenPlayer.offsetz).ToString();
             return position;
+            }
+            else
+            {
+                for (int i= 0; i > 3; i++)
+                {
+                    position[i] = "Not Possible";
+                }
+                return position;
+            }
+            
         }
 
         //sets the amount of items in the first inventoryspace
@@ -156,5 +199,13 @@ namespace HackClient
 
             }
         }
+
+        /*public void flymode()
+        {
+            while (true)
+            {
+                getAsyncKeyState(Module1)
+            }
+        }*/
     }
 }
