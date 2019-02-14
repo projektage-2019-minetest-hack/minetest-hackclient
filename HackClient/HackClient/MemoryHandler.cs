@@ -35,19 +35,22 @@ namespace HackClient
         public async void getPlayerList()
         {       //83 EC 0C C7 05 98 19 AE 00 01 00 00 00
                 //E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05
-            bool keepGoing = true;
-            int playernumber = 1;
-            while (keepGoing)
+                //bool keepGoing = true;
+                //int playernumber = 1;
+                //while (keepGoing)
+            for (int i = 0; i < 256; i++)
             {
-                long offsetofplayer = (await memory.AoBScan("E0 22 AA 00 " + playernumber.ToString("x2") + " 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).FirstOrDefault();
+                long offsetofplayer = (await memory.AoBScan("E0 22 AA 00 " + i.ToString("x2") + " 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).FirstOrDefault();
                 if (offsetofplayer <= 0)
                 {
-                    keepGoing = false;
-                    break;
+                    continue;
                 }
-                Player player = new Player();
-                playerlist.Add(player);
-                playernumber++;
+                else
+                {
+                    Player player = new Player(offsetofplayer);
+                    playerlist.Add(player);
+                }
+                
             }
            
             //long playeroffset = (await memory.AoBScan("E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).FirstOrDefault();
@@ -55,7 +58,7 @@ namespace HackClient
             //player.offsetLeben = "0x"+(playeroffset + 104).ToString("x8");
         }
 
-        public void setHP( string HP)
+        public void setHP(string HP)
         {
             memory.writeMemory(playerlist[playerId].offsetLeben, "2bytes", HP);
         }
@@ -73,11 +76,7 @@ namespace HackClient
             memory.writeMemory(playerlist[playerId].offsetz, "float", z);
         }
 
-        /**gets the x, y and z position of the Player;
-        *
-        * 
-        * 
-        */
+        //get the position of the currently chosen
         public string[] getPosition()
         {
             string[] position = new string[3];

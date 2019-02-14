@@ -9,16 +9,18 @@ namespace HackClient
 {
     class Player
     {
-        public string offsetLeben = "0x0A7EEB5C";
+        public string offsetLeben;
         public string offsetx;
         public string offsety;
         public string offsetz;
         public string offsetFirstItem;
         public string ownOffset;
+        public string name;
 
-        public Player()
+        public Player(long offset)
         {
-
+            ownOffset = "0x" + offset.ToString("x8");
+            offsetLeben = "0x"+(offset + 104).ToString("x8");
         }
     }
 }
