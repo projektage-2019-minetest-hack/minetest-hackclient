@@ -17,19 +17,13 @@ namespace HackClient
         private MemoryHandler mHandler = new MemoryHandler();
         Player mPlayer = new Player();
         public BackgroundWorker backgroundWorker;
+        private bool Closing = false;
 
         public Form1()
         {
             InitializeComponent();
-            
-            backgroundWorker = new BackgroundWorker
-            {
-                WorkerReportsProgress = true,
-                WorkerSupportsCancellation = true
-            };
-            backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
-            backgroundWorker.ProgressChanged += BackgroundWorkerOnProgressChanged;
-            backgroundWorker.RunWorkerAsync();
+
+
         }
 
         private void BackgroundWorkerOnProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -40,19 +34,34 @@ namespace HackClient
 
         private void BackgroundWorkerOnDoWork(object sender, DoWorkEventArgs e)
         {
-             
-            while (!backgroundWorker.CancellationPending)
+
+            while (!backgroundWorker.CancellationPending && !Closing)
             {
-                this.Invoke((MethodInvoker)delegate ()
-                    {
-                        //LHP.Text = MemoryHandler.GetHP();
-                        // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
-                    });
+                try
+                {
+                    this.Invoke((MethodInvoker)delegate ()
+                        {
+                            //LHP.Text = MemoryHandler.GetHP();
+                            // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
+                        });
                 }
+                catch
+                {
+
+                }
+            }
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            backgroundWorker = new BackgroundWorker
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true
+            };
+            backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
+            backgroundWorker.ProgressChanged += BackgroundWorkerOnProgressChanged;
+            backgroundWorker.RunWorkerAsync();
         }
 
         private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,17 +72,24 @@ namespace HackClient
         private void Set_HP_Click(object sender, EventArgs e)
         {
             //mPlayer.offsetLeben =Convert.ToInt32( numericUpDown1.Value);
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             backgroundWorker.CancelAsync();
+            Closing = true;
         }
 
         private void Check_Immortal_CheckedChanged(object sender, EventArgs e)
         {
             //mHandler.toggleGodmode(Check_Immortal.Checked);
             mHandler.toggleGodmode();
+        }
+
+        private void BUT_SaveOffsets_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
