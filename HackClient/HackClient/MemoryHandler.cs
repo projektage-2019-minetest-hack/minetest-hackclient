@@ -19,6 +19,7 @@ namespace HackClient
         private Thread godmode;
         public int playerId = 0;
         public Player Self;
+        public Player chosenPlayer;
 
         public MemoryHandler()
         {
@@ -50,7 +51,7 @@ namespace HackClient
             }*/
             foreach (long offset in offsetofplayer)
             {
-                Player player = new Player(offset);
+                Player player = new Player(offset, false);
                 //byte[] bA = memory.readBytes("0x" + (player.mainoffset + 516).ToString("x8"),4); //bA = base Adress
                                                                                                  //player.name = memory.readString("0x" + (baseOfNameAdress + 172).ToString("x8"));
                 //ulong adresse = memory.readUInt("0x" + (player.mainoffset + 516).ToString("x8"));//"0x" + bA[3].ToString("x2") + "" + bA[2].ToString("x2") + "" + bA[1].ToString("x2") + "" + bA[0].ToString("x2"));
@@ -60,20 +61,35 @@ namespace HackClient
             }
 
             long offsetself = (await memory.AoBScan("18 FC A9 00 00 00 00 00", true)).FirstOrDefault();
-            Self = new Player(offsetself);
+            Self = new Player(offsetself, true);
             //long playeroffset = (await memory.AoBScan("E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).FirstOrDefault();
             //player.ownOffset = "0x"+playeroffset.ToString("x8");
             //player.offsetLeben = "0x"+(playeroffset + 104).ToString("x8");
         }
 
+        public void setChosenPlayer(int id)
+        {
+            if(id == -1)
+            {
+                chosenPlayer = Self;
+            }
+            else
+            {
+                chosenPlayer = playerlist[id];
+            }
+        }
+
         public void setHP(string HP)
         {
-            memory.writeMemory(playerlist[playerId].offsetLeben, "2bytes", HP);
+            //memory.writeMemory(playerlist[playerId].offsetLeben, "2bytes", HP);
+            memory.writeMemory(chosenPlayer.offsetLeben, "2bytes", HP);
         }
 
         public string getHp()
         {
-            return memory.read2Byte(playerlist[playerId].offsetLeben).ToString();
+            //return memory.read2Byte(playerlist[playerId].offsetLeben).ToString();
+            string HP = memory.read2Byte(chosenPlayer.offsetLeben).ToString();
+            return HP;
         }
 
         public void SetName()
@@ -83,18 +99,28 @@ namespace HackClient
 
         public void setPosition(string x, string y, string z)
         {
+            /*
             memory.writeMemory(playerlist[playerId].offsetx, "float", x);
             memory.writeMemory(playerlist[playerId].offsety, "float", y);
             memory.writeMemory(playerlist[playerId].offsetz, "float", z);
+            */
+            memory.writeMemory(chosenPlayer.offsetx, "float", x);
+            memory.writeMemory(chosenPlayer.offsety, "float", y);
+            memory.writeMemory(chosenPlayer.offsetz, "float", z);
         }
 
         //get the position of the currently chosen
         public string[] getPosition()
         {
             string[] position = new string[3];
+            /*
             position[0] = memory.readFloat(playerlist[playerId].offsetx).ToString();
             position[1] = memory.readFloat(playerlist[playerId].offsety).ToString();
             position[2] = memory.readFloat(playerlist[playerId].offsetz).ToString();
+            */
+            position[0] = memory.readFloat(chosenPlayer.offsetx).ToString();
+            position[1] = memory.readFloat(chosenPlayer.offsety).ToString();
+            position[2] = memory.readFloat(chosenPlayer.offsetz).ToString();
             return position;
         }
 

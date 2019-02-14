@@ -19,11 +19,19 @@ namespace HackClient
         public long mainoffset;
         public string name;
 
-        public Player(long offset)
+        public Player(long offset, bool isSelf)
         {
-            ownOffset = "0x" + offset.ToString("x8");
-            offsetLeben = "0x" + (offset + 104).ToString("x8");
-            mainoffset = offset;
+            if (isSelf)
+            {
+                
+            }
+            else
+            {
+                ownOffset = "0x" + offset.ToString("x8");
+                offsetLeben = "0x" + (offset + 104).ToString("x8");
+              mainoffset = offset;
+            }
+            
             //getting name
 
         }
