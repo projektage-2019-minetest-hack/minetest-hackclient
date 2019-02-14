@@ -38,6 +38,7 @@ namespace HackClient
 
             while (!backgroundWorker.CancellationPending && !Closing)
             {
+                Thread.Sleep(1);
                 try
                 {
                     this.Invoke((MethodInvoker)delegate ()
