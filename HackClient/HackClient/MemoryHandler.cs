@@ -84,7 +84,7 @@ namespace HackClient
         //Loop that causes the "GodMode"
         public void godLoop()
         {
-            setFistInventorySpace("999999999");
+            //setFistInventorySpace("999999999");
             while (immortal)
             {
                 setHP("20");
