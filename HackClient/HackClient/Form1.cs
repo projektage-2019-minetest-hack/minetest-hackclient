@@ -103,6 +103,7 @@ namespace HackClient
             mPlayer.offsetx= E_X_Offset.Text;
             mPlayer.offsety = E_Y_Offset.Text;
             mPlayer.offsetz = E_Z_Offset.Text;
+            mHandler.player = mPlayer;
         }
     }
 }
