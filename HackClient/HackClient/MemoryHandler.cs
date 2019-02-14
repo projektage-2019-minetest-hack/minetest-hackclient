@@ -16,6 +16,8 @@ namespace HackClient
         public Player player = new Player();
         public bool immortal = false;
         private Thread godmode;
+
+
         public MemoryHandler()
         {
             bool processExsits = false;
@@ -45,6 +47,11 @@ namespace HackClient
             memory.writeMemory(player.offsetz, "float", z);
         }
 
+        /**gets the x, y and z position of the Player;
+        *
+        * 
+        * 
+        */
         public string[] getPosition()
         {
             string[] position = new string[3];
@@ -54,11 +61,13 @@ namespace HackClient
             return position;
         }
 
+        //sets the amount of items in the first inventoryspace
         public void setFistInventorySpace(string amount)
         {
             memory.writeMemory(player.offsetFirstItem, "int", amount);
         }
 
+        //starts of stops the godmode based on the status of the checkbox
         public void toggleGodmode(bool newstatus)
         {
             if (newstatus)
@@ -71,11 +80,15 @@ namespace HackClient
                 godmode.Start();
             }
         }
+        
+        //Loop that causes the "GodMode"
         public void godLoop()
         {
+            setFistInventorySpace("999999999");
             while (immortal)
             {
                 setHP("20");
+               
             }
         }
     }
