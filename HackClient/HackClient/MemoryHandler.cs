@@ -32,7 +32,7 @@ namespace HackClient
             godmode = new Thread(godLoop);
         }
 
-        public async void getPlayerList(int MaxPlayer)
+        public async void getPlayerList()
         {       //83 EC 0C C7 05 98 19 AE 00 01 00 00 00
                 //E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05
                 //bool keepGoing = true;
