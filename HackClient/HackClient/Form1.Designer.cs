@@ -38,6 +38,8 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.Set_HP = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ComboPlayer = new System.Windows.Forms.ComboBox();
+            this.BUT_PlayerLoad = new System.Windows.Forms.Button();
             this.E_1Item_Offset = new System.Windows.Forms.TextBox();
             this.lFirstItemoffset = new System.Windows.Forms.Label();
             this.E_Z_Offset = new System.Windows.Forms.TextBox();
@@ -48,11 +50,12 @@
             this.lyOffset = new System.Windows.Forms.Label();
             this.lXoffset = new System.Windows.Forms.Label();
             this.E_X_Offset = new System.Windows.Forms.TextBox();
-            this.BUT_PlayerLoad = new System.Windows.Forms.Button();
-            this.ComboPlayer = new System.Windows.Forms.ComboBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.L_Anzahl = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -61,7 +64,7 @@
             this.reloadToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(623, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(651, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,7 +78,7 @@
             // BUT_SaveOffsets
             // 
             this.BUT_SaveOffsets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BUT_SaveOffsets.Location = new System.Drawing.Point(90, 481);
+            this.BUT_SaveOffsets.Location = new System.Drawing.Point(122, 481);
             this.BUT_SaveOffsets.Name = "BUT_SaveOffsets";
             this.BUT_SaveOffsets.Size = new System.Drawing.Size(112, 23);
             this.BUT_SaveOffsets.TabIndex = 2;
@@ -134,12 +137,15 @@
             this.Set_HP.TabIndex = 13;
             this.Set_HP.Text = "Setze HP";
             this.Set_HP.UseVisualStyleBackColor = true;
+            this.Set_HP.Click += new System.EventHandler(this.Set_HP_Click);
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.L_Anzahl);
+            this.panel1.Controls.Add(this.numericUpDown2);
             this.panel1.Controls.Add(this.ComboPlayer);
             this.panel1.Controls.Add(this.BUT_PlayerLoad);
             this.panel1.Controls.Add(this.E_1Item_Offset);
@@ -153,15 +159,37 @@
             this.panel1.Controls.Add(this.BUT_SaveOffsets);
             this.panel1.Controls.Add(this.lXoffset);
             this.panel1.Controls.Add(this.E_X_Offset);
-            this.panel1.Location = new System.Drawing.Point(409, 24);
+            this.panel1.Location = new System.Drawing.Point(405, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(214, 516);
+            this.panel1.Size = new System.Drawing.Size(246, 516);
             this.panel1.TabIndex = 17;
+            // 
+            // ComboPlayer
+            // 
+            this.ComboPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComboPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboPlayer.FormattingEnabled = true;
+            this.ComboPlayer.Location = new System.Drawing.Point(7, 116);
+            this.ComboPlayer.Name = "ComboPlayer";
+            this.ComboPlayer.Size = new System.Drawing.Size(121, 21);
+            this.ComboPlayer.TabIndex = 22;
+            this.ComboPlayer.SelectedIndexChanged += new System.EventHandler(this.ComboPlayer_SelectedIndexChanged);
+            // 
+            // BUT_PlayerLoad
+            // 
+            this.BUT_PlayerLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BUT_PlayerLoad.Location = new System.Drawing.Point(53, 37);
+            this.BUT_PlayerLoad.Name = "BUT_PlayerLoad";
+            this.BUT_PlayerLoad.Size = new System.Drawing.Size(75, 23);
+            this.BUT_PlayerLoad.TabIndex = 21;
+            this.BUT_PlayerLoad.Text = "Lade Spieler";
+            this.BUT_PlayerLoad.UseVisualStyleBackColor = true;
+            this.BUT_PlayerLoad.Click += new System.EventHandler(this.BUT_PlayerLoad_Click);
             // 
             // E_1Item_Offset
             // 
             this.E_1Item_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_1Item_Offset.Location = new System.Drawing.Point(90, 234);
+            this.E_1Item_Offset.Location = new System.Drawing.Point(105, 247);
             this.E_1Item_Offset.Name = "E_1Item_Offset";
             this.E_1Item_Offset.Size = new System.Drawing.Size(100, 20);
             this.E_1Item_Offset.TabIndex = 20;
@@ -170,7 +198,7 @@
             // 
             this.lFirstItemoffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lFirstItemoffset.AutoSize = true;
-            this.lFirstItemoffset.Location = new System.Drawing.Point(4, 237);
+            this.lFirstItemoffset.Location = new System.Drawing.Point(19, 250);
             this.lFirstItemoffset.Name = "lFirstItemoffset";
             this.lFirstItemoffset.Size = new System.Drawing.Size(80, 13);
             this.lFirstItemoffset.TabIndex = 19;
@@ -179,7 +207,7 @@
             // E_Z_Offset
             // 
             this.E_Z_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_Z_Offset.Location = new System.Drawing.Point(90, 208);
+            this.E_Z_Offset.Location = new System.Drawing.Point(105, 221);
             this.E_Z_Offset.Name = "E_Z_Offset";
             this.E_Z_Offset.Size = new System.Drawing.Size(100, 20);
             this.E_Z_Offset.TabIndex = 18;
@@ -188,7 +216,7 @@
             // 
             this.lzoffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lzoffset.AutoSize = true;
-            this.lzoffset.Location = new System.Drawing.Point(4, 211);
+            this.lzoffset.Location = new System.Drawing.Point(19, 224);
             this.lzoffset.Name = "lzoffset";
             this.lzoffset.Size = new System.Drawing.Size(45, 13);
             this.lzoffset.TabIndex = 17;
@@ -197,7 +225,7 @@
             // E_HP_Offset
             // 
             this.E_HP_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_HP_Offset.Location = new System.Drawing.Point(90, 130);
+            this.E_HP_Offset.Location = new System.Drawing.Point(105, 143);
             this.E_HP_Offset.Name = "E_HP_Offset";
             this.E_HP_Offset.Size = new System.Drawing.Size(100, 20);
             this.E_HP_Offset.TabIndex = 12;
@@ -205,7 +233,7 @@
             // E_Y_Offset
             // 
             this.E_Y_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_Y_Offset.Location = new System.Drawing.Point(90, 182);
+            this.E_Y_Offset.Location = new System.Drawing.Point(105, 195);
             this.E_Y_Offset.Name = "E_Y_Offset";
             this.E_Y_Offset.Size = new System.Drawing.Size(100, 20);
             this.E_Y_Offset.TabIndex = 16;
@@ -214,7 +242,7 @@
             // 
             this.lHPOffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lHPOffset.AutoSize = true;
-            this.lHPOffset.Location = new System.Drawing.Point(4, 133);
+            this.lHPOffset.Location = new System.Drawing.Point(19, 146);
             this.lHPOffset.Name = "lHPOffset";
             this.lHPOffset.Size = new System.Drawing.Size(53, 13);
             this.lHPOffset.TabIndex = 11;
@@ -224,7 +252,7 @@
             // 
             this.lyOffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lyOffset.AutoSize = true;
-            this.lyOffset.Location = new System.Drawing.Point(4, 185);
+            this.lyOffset.Location = new System.Drawing.Point(19, 198);
             this.lyOffset.Name = "lyOffset";
             this.lyOffset.Size = new System.Drawing.Size(45, 13);
             this.lyOffset.TabIndex = 15;
@@ -234,7 +262,7 @@
             // 
             this.lXoffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lXoffset.AutoSize = true;
-            this.lXoffset.Location = new System.Drawing.Point(4, 159);
+            this.lXoffset.Location = new System.Drawing.Point(19, 172);
             this.lXoffset.Name = "lXoffset";
             this.lXoffset.Size = new System.Drawing.Size(45, 13);
             this.lXoffset.TabIndex = 13;
@@ -243,35 +271,49 @@
             // E_X_Offset
             // 
             this.E_X_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_X_Offset.Location = new System.Drawing.Point(90, 156);
+            this.E_X_Offset.Location = new System.Drawing.Point(105, 169);
             this.E_X_Offset.Name = "E_X_Offset";
             this.E_X_Offset.Size = new System.Drawing.Size(100, 20);
             this.E_X_Offset.TabIndex = 14;
             // 
-            // BUT_PlayerLoad
+            // numericUpDown2
             // 
-            this.BUT_PlayerLoad.Location = new System.Drawing.Point(136, 8);
-            this.BUT_PlayerLoad.Name = "BUT_PlayerLoad";
-            this.BUT_PlayerLoad.Size = new System.Drawing.Size(75, 23);
-            this.BUT_PlayerLoad.TabIndex = 21;
-            this.BUT_PlayerLoad.Text = "Lade Spieler";
-            this.BUT_PlayerLoad.UseVisualStyleBackColor = true;
-            this.BUT_PlayerLoad.Click += new System.EventHandler(this.BUT_PlayerLoad_Click);
+            this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDown2.Location = new System.Drawing.Point(153, 13);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(90, 20);
+            this.numericUpDown2.TabIndex = 23;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // ComboPlayer
+            // L_Anzahl
             // 
-            this.ComboPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboPlayer.FormattingEnabled = true;
-            this.ComboPlayer.Location = new System.Drawing.Point(9, 8);
-            this.ComboPlayer.Name = "ComboPlayer";
-            this.ComboPlayer.Size = new System.Drawing.Size(121, 21);
-            this.ComboPlayer.TabIndex = 22;
+            this.L_Anzahl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.L_Anzahl.AutoSize = true;
+            this.L_Anzahl.Location = new System.Drawing.Point(4, 15);
+            this.L_Anzahl.Name = "L_Anzahl";
+            this.L_Anzahl.Size = new System.Drawing.Size(143, 13);
+            this.L_Anzahl.TabIndex = 24;
+            this.L_Anzahl.Text = "Anzahl zu Suchender Spieler";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 540);
+            this.ClientSize = new System.Drawing.Size(651, 540);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Check_Immortal);
             this.Controls.Add(this.L_HpValue);
@@ -290,6 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,6 +362,8 @@
         private System.Windows.Forms.TextBox E_X_Offset;
         private System.Windows.Forms.Button BUT_PlayerLoad;
         private System.Windows.Forms.ComboBox ComboPlayer;
+        private System.Windows.Forms.Label L_Anzahl;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }
 
