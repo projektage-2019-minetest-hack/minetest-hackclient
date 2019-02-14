@@ -77,7 +77,7 @@ namespace HackClient
             LoadPlayerListwithScan();
             
             
-                mHandler.setChosenPlayer(-1);
+                
             
             
             backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
@@ -152,7 +152,9 @@ namespace HackClient
             {
                 ComboPlayer.Items.Add(/*mHandler.playerlist[i].name*/ "Player "+ mHandler.playerlist.Count);//Später name aus dem jeweiligen Player
             }
-   
+
+
+            mHandler.setChosenPlayer(-1);
         }
 
         private void ComboPlayer_SelectedIndexChanged(object sender, EventArgs e)
@@ -179,6 +181,18 @@ namespace HackClient
                 mHandler.setChosenPlayer(ComboPlayer.SelectedIndex);
             }
             
+        }
+
+        private void BUT_SetPos_Click(object sender, EventArgs e)
+        {
+            mHandler.setPosition(E_X.Text, E_Y.Text, E_Z.Text);
+        }
+
+        private void BUT_Copy_Click(object sender, EventArgs e)
+        {
+            E_X.Text = lXValue.Text;
+            E_Y.Text = lYValue.Text;
+            E_Z.Text = lZValue.Text;
         }
     }
 }

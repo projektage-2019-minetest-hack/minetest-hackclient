@@ -32,6 +32,17 @@
             this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabClient = new System.Windows.Forms.TabPage();
+            this.E_Z = new System.Windows.Forms.TextBox();
+            this.E_Y = new System.Windows.Forms.TextBox();
+            this.BUT_SetPos = new System.Windows.Forms.Button();
+            this.E_X = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lYValue = new System.Windows.Forms.Label();
+            this.lZValue = new System.Windows.Forms.Label();
+            this.lXValue = new System.Windows.Forms.Label();
+            this.lY = new System.Windows.Forms.Label();
+            this.lx = new System.Windows.Forms.Label();
+            this.lPos = new System.Windows.Forms.Label();
             this.TabServer = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.L_Anzahl = new System.Windows.Forms.Label();
@@ -54,13 +65,7 @@
             this.LHP = new System.Windows.Forms.Label();
             this.numSetHP = new System.Windows.Forms.NumericUpDown();
             this.Set_HP = new System.Windows.Forms.Button();
-            this.lPos = new System.Windows.Forms.Label();
-            this.lx = new System.Windows.Forms.Label();
-            this.lY = new System.Windows.Forms.Label();
-            this.lXValue = new System.Windows.Forms.Label();
-            this.lZValue = new System.Windows.Forms.Label();
-            this.lYValue = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.BUT_Copy = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabClient.SuspendLayout();
@@ -100,6 +105,11 @@
             // 
             // TabClient
             // 
+            this.TabClient.Controls.Add(this.BUT_Copy);
+            this.TabClient.Controls.Add(this.E_Z);
+            this.TabClient.Controls.Add(this.E_Y);
+            this.TabClient.Controls.Add(this.BUT_SetPos);
+            this.TabClient.Controls.Add(this.E_X);
             this.TabClient.Controls.Add(this.label6);
             this.TabClient.Controls.Add(this.lYValue);
             this.TabClient.Controls.Add(this.lZValue);
@@ -114,6 +124,100 @@
             this.TabClient.TabIndex = 1;
             this.TabClient.Text = "Client";
             this.TabClient.UseVisualStyleBackColor = true;
+            // 
+            // E_Z
+            // 
+            this.E_Z.Location = new System.Drawing.Point(242, 63);
+            this.E_Z.Name = "E_Z";
+            this.E_Z.Size = new System.Drawing.Size(100, 20);
+            this.E_Z.TabIndex = 10;
+            // 
+            // E_Y
+            // 
+            this.E_Y.Location = new System.Drawing.Point(135, 63);
+            this.E_Y.Name = "E_Y";
+            this.E_Y.Size = new System.Drawing.Size(100, 20);
+            this.E_Y.TabIndex = 9;
+            // 
+            // BUT_SetPos
+            // 
+            this.BUT_SetPos.Location = new System.Drawing.Point(146, 89);
+            this.BUT_SetPos.Name = "BUT_SetPos";
+            this.BUT_SetPos.Size = new System.Drawing.Size(75, 23);
+            this.BUT_SetPos.TabIndex = 8;
+            this.BUT_SetPos.Text = "Set Position";
+            this.BUT_SetPos.UseVisualStyleBackColor = true;
+            this.BUT_SetPos.Click += new System.EventHandler(this.BUT_SetPos_Click);
+            // 
+            // E_X
+            // 
+            this.E_X.Location = new System.Drawing.Point(20, 63);
+            this.E_X.Name = "E_X";
+            this.E_X.Size = new System.Drawing.Size(100, 20);
+            this.E_X.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(239, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Nord Süd:";
+            // 
+            // lYValue
+            // 
+            this.lYValue.AutoSize = true;
+            this.lYValue.Location = new System.Drawing.Point(174, 47);
+            this.lYValue.Name = "lYValue";
+            this.lYValue.Size = new System.Drawing.Size(13, 13);
+            this.lYValue.TabIndex = 5;
+            this.lYValue.Text = "--";
+            // 
+            // lZValue
+            // 
+            this.lZValue.AutoSize = true;
+            this.lZValue.Location = new System.Drawing.Point(300, 47);
+            this.lZValue.Name = "lZValue";
+            this.lZValue.Size = new System.Drawing.Size(13, 13);
+            this.lZValue.TabIndex = 4;
+            this.lZValue.Text = "--";
+            // 
+            // lXValue
+            // 
+            this.lXValue.AutoSize = true;
+            this.lXValue.Location = new System.Drawing.Point(77, 47);
+            this.lXValue.Name = "lXValue";
+            this.lXValue.Size = new System.Drawing.Size(13, 13);
+            this.lXValue.TabIndex = 3;
+            this.lXValue.Text = "--";
+            // 
+            // lY
+            // 
+            this.lY.AutoSize = true;
+            this.lY.Location = new System.Drawing.Point(132, 47);
+            this.lY.Name = "lY";
+            this.lY.Size = new System.Drawing.Size(36, 13);
+            this.lY.TabIndex = 2;
+            this.lY.Text = "Höhe:";
+            // 
+            // lx
+            // 
+            this.lx.AutoSize = true;
+            this.lx.Location = new System.Drawing.Point(17, 47);
+            this.lx.Name = "lx";
+            this.lx.Size = new System.Drawing.Size(54, 13);
+            this.lx.TabIndex = 1;
+            this.lx.Text = "West Ost:";
+            // 
+            // lPos
+            // 
+            this.lPos.AutoSize = true;
+            this.lPos.Location = new System.Drawing.Point(15, 13);
+            this.lPos.Name = "lPos";
+            this.lPos.Size = new System.Drawing.Size(44, 13);
+            this.lPos.TabIndex = 0;
+            this.lPos.Text = "Position";
             // 
             // TabServer
             // 
@@ -356,68 +460,15 @@
             this.Set_HP.Text = "Setze HP";
             this.Set_HP.UseVisualStyleBackColor = true;
             // 
-            // lPos
+            // BUT_Copy
             // 
-            this.lPos.AutoSize = true;
-            this.lPos.Location = new System.Drawing.Point(15, 13);
-            this.lPos.Name = "lPos";
-            this.lPos.Size = new System.Drawing.Size(44, 13);
-            this.lPos.TabIndex = 0;
-            this.lPos.Text = "Position";
-            // 
-            // lx
-            // 
-            this.lx.AutoSize = true;
-            this.lx.Location = new System.Drawing.Point(17, 47);
-            this.lx.Name = "lx";
-            this.lx.Size = new System.Drawing.Size(17, 13);
-            this.lx.TabIndex = 1;
-            this.lx.Text = "X:";
-            // 
-            // lY
-            // 
-            this.lY.AutoSize = true;
-            this.lY.Location = new System.Drawing.Point(98, 47);
-            this.lY.Name = "lY";
-            this.lY.Size = new System.Drawing.Size(17, 13);
-            this.lY.TabIndex = 2;
-            this.lY.Text = "Y:";
-            // 
-            // lXValue
-            // 
-            this.lXValue.AutoSize = true;
-            this.lXValue.Location = new System.Drawing.Point(40, 47);
-            this.lXValue.Name = "lXValue";
-            this.lXValue.Size = new System.Drawing.Size(13, 13);
-            this.lXValue.TabIndex = 3;
-            this.lXValue.Text = "--";
-            // 
-            // lZValue
-            // 
-            this.lZValue.AutoSize = true;
-            this.lZValue.Location = new System.Drawing.Point(203, 47);
-            this.lZValue.Name = "lZValue";
-            this.lZValue.Size = new System.Drawing.Size(13, 13);
-            this.lZValue.TabIndex = 4;
-            this.lZValue.Text = "--";
-            // 
-            // lYValue
-            // 
-            this.lYValue.AutoSize = true;
-            this.lYValue.Location = new System.Drawing.Point(121, 47);
-            this.lYValue.Name = "lYValue";
-            this.lYValue.Size = new System.Drawing.Size(13, 13);
-            this.lYValue.TabIndex = 5;
-            this.lYValue.Text = "--";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(162, 47);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(17, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Z:";
+            this.BUT_Copy.Location = new System.Drawing.Point(348, 61);
+            this.BUT_Copy.Name = "BUT_Copy";
+            this.BUT_Copy.Size = new System.Drawing.Size(163, 23);
+            this.BUT_Copy.TabIndex = 11;
+            this.BUT_Copy.Text = "Kopiere von aktueller Position";
+            this.BUT_Copy.UseVisualStyleBackColor = true;
+            this.BUT_Copy.Click += new System.EventHandler(this.BUT_Copy_Click);
             // 
             // Form1
             // 
@@ -482,6 +533,11 @@
         private System.Windows.Forms.Label lXValue;
         private System.Windows.Forms.Label lY;
         private System.Windows.Forms.Label lx;
+        private System.Windows.Forms.TextBox E_Z;
+        private System.Windows.Forms.TextBox E_Y;
+        private System.Windows.Forms.Button BUT_SetPos;
+        private System.Windows.Forms.TextBox E_X;
+        private System.Windows.Forms.Button BUT_Copy;
     }
 }
 
