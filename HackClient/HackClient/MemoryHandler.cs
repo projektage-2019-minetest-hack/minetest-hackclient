@@ -201,6 +201,11 @@ namespace HackClient
             }
         }
 
+        public void ghostmode()
+        {
+            setHP("0");
+        }
+
         /*public void flymode()
         {
             while (true)
