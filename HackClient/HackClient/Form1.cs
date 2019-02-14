@@ -56,7 +56,7 @@ namespace HackClient
                                 {
                                     //LHP.Text = MemoryHandler.GetHP();
                                     // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
-                                    LHP.Text = mHandler.getHp();
+                                    L_HpValue.Text = mHandler.getHp();
                                 }
                             }
                         });
@@ -123,15 +123,15 @@ namespace HackClient
             //mHandler.toggleGodmode();
         }
 
-        private void BUT_SaveOffsets_Click(object sender, EventArgs e)
-        {
-            mHandler.playerlist[ComboPlayer.SelectedIndex].offsetLeben = E_HP_Offset.Text;
-            mHandler.playerlist[ComboPlayer.SelectedIndex].offsetFirstItem = E_1Item_Offset.Text;
-            mHandler.playerlist[ComboPlayer.SelectedIndex].offsetx= E_X_Offset.Text;
-            mHandler.playerlist[ComboPlayer.SelectedIndex].offsety = E_Y_Offset.Text;
-            mHandler.playerlist[ComboPlayer.SelectedIndex].offsetz = E_Z_Offset.Text;
+        //private void BUT_SaveOffsets_Click(object sender, EventArgs e)
+        //{
+        //    mHandler.playerlist[ComboPlayer.SelectedIndex].offsetLeben = E_HP_Offset.Text;
+        //    mHandler.playerlist[ComboPlayer.SelectedIndex].offsetFirstItem = E_1Item_Offset.Text;
+        //    mHandler.playerlist[ComboPlayer.SelectedIndex].offsetx= E_X_Offset.Text;
+        //    mHandler.playerlist[ComboPlayer.SelectedIndex].offsety = E_Y_Offset.Text;
+        //    mHandler.playerlist[ComboPlayer.SelectedIndex].offsetz = E_Z_Offset.Text;
           
-        }
+        //}
 
         private void BUT_PlayerLoad_Click(object sender, EventArgs e)
         {

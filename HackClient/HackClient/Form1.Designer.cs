@@ -49,17 +49,6 @@
             this.numPlayer = new System.Windows.Forms.NumericUpDown();
             this.ComboPlayer = new System.Windows.Forms.ComboBox();
             this.BUT_PlayerLoad = new System.Windows.Forms.Button();
-            this.E_1Item_Offset = new System.Windows.Forms.TextBox();
-            this.lFirstItemoffset = new System.Windows.Forms.Label();
-            this.E_Z_Offset = new System.Windows.Forms.TextBox();
-            this.lzoffset = new System.Windows.Forms.Label();
-            this.E_HP_Offset = new System.Windows.Forms.TextBox();
-            this.E_Y_Offset = new System.Windows.Forms.TextBox();
-            this.lHPOffset = new System.Windows.Forms.Label();
-            this.lyOffset = new System.Windows.Forms.Label();
-            this.BUT_SaveOffsets = new System.Windows.Forms.Button();
-            this.lXoffset = new System.Windows.Forms.Label();
-            this.E_X_Offset = new System.Windows.Forms.TextBox();
             this.Check_Immortal = new System.Windows.Forms.CheckBox();
             this.L_HpValue = new System.Windows.Forms.Label();
             this.LHP = new System.Windows.Forms.Label();
@@ -81,7 +70,7 @@
             this.reloadToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(662, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(590, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -102,7 +91,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(647, 520);
+            this.tabControl1.Size = new System.Drawing.Size(575, 180);
             this.tabControl1.TabIndex = 23;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -123,7 +112,7 @@
             this.TabClient.Location = new System.Drawing.Point(4, 22);
             this.TabClient.Name = "TabClient";
             this.TabClient.Padding = new System.Windows.Forms.Padding(3);
-            this.TabClient.Size = new System.Drawing.Size(639, 494);
+            this.TabClient.Size = new System.Drawing.Size(567, 154);
             this.TabClient.TabIndex = 1;
             this.TabClient.Text = "Client";
             this.TabClient.UseVisualStyleBackColor = true;
@@ -226,6 +215,7 @@
             // 
             this.TabServer.Controls.Add(this.panel1);
             this.TabServer.Controls.Add(this.Check_Immortal);
+            this.TabServer.Controls.Add(this.ComboPlayer);
             this.TabServer.Controls.Add(this.L_HpValue);
             this.TabServer.Controls.Add(this.LHP);
             this.TabServer.Controls.Add(this.numSetHP);
@@ -233,41 +223,28 @@
             this.TabServer.Location = new System.Drawing.Point(4, 22);
             this.TabServer.Name = "TabServer";
             this.TabServer.Padding = new System.Windows.Forms.Padding(3);
-            this.TabServer.Size = new System.Drawing.Size(639, 494);
+            this.TabServer.Size = new System.Drawing.Size(567, 154);
             this.TabServer.TabIndex = 0;
             this.TabServer.Text = "Server";
             this.TabServer.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel1.Controls.Add(this.L_Anzahl);
             this.panel1.Controls.Add(this.numPlayer);
-            this.panel1.Controls.Add(this.ComboPlayer);
             this.panel1.Controls.Add(this.BUT_PlayerLoad);
-            this.panel1.Controls.Add(this.E_1Item_Offset);
-            this.panel1.Controls.Add(this.lFirstItemoffset);
-            this.panel1.Controls.Add(this.E_Z_Offset);
-            this.panel1.Controls.Add(this.lzoffset);
-            this.panel1.Controls.Add(this.E_HP_Offset);
-            this.panel1.Controls.Add(this.E_Y_Offset);
-            this.panel1.Controls.Add(this.lHPOffset);
-            this.panel1.Controls.Add(this.lyOffset);
-            this.panel1.Controls.Add(this.BUT_SaveOffsets);
-            this.panel1.Controls.Add(this.lXoffset);
-            this.panel1.Controls.Add(this.E_X_Offset);
-            this.panel1.Location = new System.Drawing.Point(387, 12);
+            this.panel1.Location = new System.Drawing.Point(6, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(246, 479);
+            this.panel1.Size = new System.Drawing.Size(555, 75);
             this.panel1.TabIndex = 17;
             // 
             // L_Anzahl
             // 
-            this.L_Anzahl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.L_Anzahl.AutoSize = true;
-            this.L_Anzahl.Location = new System.Drawing.Point(4, 15);
+            this.L_Anzahl.Location = new System.Drawing.Point(13, 13);
             this.L_Anzahl.Name = "L_Anzahl";
             this.L_Anzahl.Size = new System.Drawing.Size(143, 13);
             this.L_Anzahl.TabIndex = 24;
@@ -275,8 +252,7 @@
             // 
             // numPlayer
             // 
-            this.numPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numPlayer.Location = new System.Drawing.Point(153, 13);
+            this.numPlayer.Location = new System.Drawing.Point(162, 11);
             this.numPlayer.Maximum = new decimal(new int[] {
             256,
             0,
@@ -298,10 +274,9 @@
             // 
             // ComboPlayer
             // 
-            this.ComboPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ComboPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboPlayer.FormattingEnabled = true;
-            this.ComboPlayer.Location = new System.Drawing.Point(7, 116);
+            this.ComboPlayer.Location = new System.Drawing.Point(15, 84);
             this.ComboPlayer.Name = "ComboPlayer";
             this.ComboPlayer.Size = new System.Drawing.Size(121, 21);
             this.ComboPlayer.TabIndex = 22;
@@ -309,8 +284,7 @@
             // 
             // BUT_PlayerLoad
             // 
-            this.BUT_PlayerLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BUT_PlayerLoad.Location = new System.Drawing.Point(53, 37);
+            this.BUT_PlayerLoad.Location = new System.Drawing.Point(258, 8);
             this.BUT_PlayerLoad.Name = "BUT_PlayerLoad";
             this.BUT_PlayerLoad.Size = new System.Drawing.Size(75, 23);
             this.BUT_PlayerLoad.TabIndex = 21;
@@ -318,121 +292,21 @@
             this.BUT_PlayerLoad.UseVisualStyleBackColor = true;
             this.BUT_PlayerLoad.Click += new System.EventHandler(this.BUT_PlayerLoad_Click);
             // 
-            // E_1Item_Offset
-            // 
-            this.E_1Item_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_1Item_Offset.Location = new System.Drawing.Point(105, 247);
-            this.E_1Item_Offset.Name = "E_1Item_Offset";
-            this.E_1Item_Offset.Size = new System.Drawing.Size(100, 20);
-            this.E_1Item_Offset.TabIndex = 20;
-            // 
-            // lFirstItemoffset
-            // 
-            this.lFirstItemoffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lFirstItemoffset.AutoSize = true;
-            this.lFirstItemoffset.Location = new System.Drawing.Point(19, 250);
-            this.lFirstItemoffset.Name = "lFirstItemoffset";
-            this.lFirstItemoffset.Size = new System.Drawing.Size(80, 13);
-            this.lFirstItemoffset.TabIndex = 19;
-            this.lFirstItemoffset.Text = "First Item Offset";
-            // 
-            // E_Z_Offset
-            // 
-            this.E_Z_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_Z_Offset.Location = new System.Drawing.Point(105, 221);
-            this.E_Z_Offset.Name = "E_Z_Offset";
-            this.E_Z_Offset.Size = new System.Drawing.Size(100, 20);
-            this.E_Z_Offset.TabIndex = 18;
-            // 
-            // lzoffset
-            // 
-            this.lzoffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lzoffset.AutoSize = true;
-            this.lzoffset.Location = new System.Drawing.Point(19, 224);
-            this.lzoffset.Name = "lzoffset";
-            this.lzoffset.Size = new System.Drawing.Size(45, 13);
-            this.lzoffset.TabIndex = 17;
-            this.lzoffset.Text = "Z Offset";
-            // 
-            // E_HP_Offset
-            // 
-            this.E_HP_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_HP_Offset.Location = new System.Drawing.Point(105, 143);
-            this.E_HP_Offset.Name = "E_HP_Offset";
-            this.E_HP_Offset.Size = new System.Drawing.Size(100, 20);
-            this.E_HP_Offset.TabIndex = 12;
-            // 
-            // E_Y_Offset
-            // 
-            this.E_Y_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_Y_Offset.Location = new System.Drawing.Point(105, 195);
-            this.E_Y_Offset.Name = "E_Y_Offset";
-            this.E_Y_Offset.Size = new System.Drawing.Size(100, 20);
-            this.E_Y_Offset.TabIndex = 16;
-            // 
-            // lHPOffset
-            // 
-            this.lHPOffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lHPOffset.AutoSize = true;
-            this.lHPOffset.Location = new System.Drawing.Point(19, 146);
-            this.lHPOffset.Name = "lHPOffset";
-            this.lHPOffset.Size = new System.Drawing.Size(53, 13);
-            this.lHPOffset.TabIndex = 11;
-            this.lHPOffset.Text = "HP Offset";
-            // 
-            // lyOffset
-            // 
-            this.lyOffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lyOffset.AutoSize = true;
-            this.lyOffset.Location = new System.Drawing.Point(19, 198);
-            this.lyOffset.Name = "lyOffset";
-            this.lyOffset.Size = new System.Drawing.Size(45, 13);
-            this.lyOffset.TabIndex = 15;
-            this.lyOffset.Text = "Y Offset";
-            // 
-            // BUT_SaveOffsets
-            // 
-            this.BUT_SaveOffsets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BUT_SaveOffsets.Location = new System.Drawing.Point(122, 444);
-            this.BUT_SaveOffsets.Name = "BUT_SaveOffsets";
-            this.BUT_SaveOffsets.Size = new System.Drawing.Size(112, 23);
-            this.BUT_SaveOffsets.TabIndex = 2;
-            this.BUT_SaveOffsets.Text = "Speicher Offsets";
-            this.BUT_SaveOffsets.UseVisualStyleBackColor = true;
-            this.BUT_SaveOffsets.Click += new System.EventHandler(this.BUT_SaveOffsets_Click);
-            // 
-            // lXoffset
-            // 
-            this.lXoffset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lXoffset.AutoSize = true;
-            this.lXoffset.Location = new System.Drawing.Point(19, 172);
-            this.lXoffset.Name = "lXoffset";
-            this.lXoffset.Size = new System.Drawing.Size(45, 13);
-            this.lXoffset.TabIndex = 13;
-            this.lXoffset.Text = "X Offset";
-            // 
-            // E_X_Offset
-            // 
-            this.E_X_Offset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.E_X_Offset.Location = new System.Drawing.Point(105, 169);
-            this.E_X_Offset.Name = "E_X_Offset";
-            this.E_X_Offset.Size = new System.Drawing.Size(100, 20);
-            this.E_X_Offset.TabIndex = 14;
-            // 
             // Check_Immortal
             // 
             this.Check_Immortal.AutoSize = true;
-            this.Check_Immortal.Location = new System.Drawing.Point(318, 11);
+            this.Check_Immortal.Location = new System.Drawing.Point(318, 127);
             this.Check_Immortal.Name = "Check_Immortal";
             this.Check_Immortal.Size = new System.Drawing.Size(57, 17);
             this.Check_Immortal.TabIndex = 27;
             this.Check_Immortal.Text = "Imortal";
             this.Check_Immortal.UseVisualStyleBackColor = true;
+            this.Check_Immortal.CheckedChanged += new System.EventHandler(this.Check_Immortal_CheckedChanged);
             // 
             // L_HpValue
             // 
             this.L_HpValue.AutoSize = true;
-            this.L_HpValue.Location = new System.Drawing.Point(43, 12);
+            this.L_HpValue.Location = new System.Drawing.Point(43, 128);
             this.L_HpValue.Name = "L_HpValue";
             this.L_HpValue.Size = new System.Drawing.Size(16, 13);
             this.L_HpValue.TabIndex = 26;
@@ -441,7 +315,7 @@
             // LHP
             // 
             this.LHP.AutoSize = true;
-            this.LHP.Location = new System.Drawing.Point(12, 12);
+            this.LHP.Location = new System.Drawing.Point(12, 128);
             this.LHP.Name = "LHP";
             this.LHP.Size = new System.Drawing.Size(25, 13);
             this.LHP.TabIndex = 25;
@@ -449,19 +323,20 @@
             // 
             // numSetHP
             // 
-            this.numSetHP.Location = new System.Drawing.Point(111, 10);
+            this.numSetHP.Location = new System.Drawing.Point(111, 126);
             this.numSetHP.Name = "numSetHP";
             this.numSetHP.Size = new System.Drawing.Size(120, 20);
             this.numSetHP.TabIndex = 23;
             // 
             // Set_HP
             // 
-            this.Set_HP.Location = new System.Drawing.Point(237, 7);
+            this.Set_HP.Location = new System.Drawing.Point(237, 123);
             this.Set_HP.Name = "Set_HP";
             this.Set_HP.Size = new System.Drawing.Size(75, 23);
             this.Set_HP.TabIndex = 24;
             this.Set_HP.Text = "Setze HP";
             this.Set_HP.UseVisualStyleBackColor = true;
+            this.Set_HP.Click += new System.EventHandler(this.Set_HP_Click);
             // 
             // BUT_Copy
             // 
@@ -477,10 +352,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 550);
+            this.ClientSize = new System.Drawing.Size(590, 210);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(606, 249);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -512,17 +388,6 @@
         private System.Windows.Forms.NumericUpDown numPlayer;
         private System.Windows.Forms.ComboBox ComboPlayer;
         private System.Windows.Forms.Button BUT_PlayerLoad;
-        private System.Windows.Forms.TextBox E_1Item_Offset;
-        private System.Windows.Forms.Label lFirstItemoffset;
-        private System.Windows.Forms.TextBox E_Z_Offset;
-        private System.Windows.Forms.Label lzoffset;
-        private System.Windows.Forms.TextBox E_HP_Offset;
-        private System.Windows.Forms.TextBox E_Y_Offset;
-        private System.Windows.Forms.Label lHPOffset;
-        private System.Windows.Forms.Label lyOffset;
-        private System.Windows.Forms.Button BUT_SaveOffsets;
-        private System.Windows.Forms.Label lXoffset;
-        private System.Windows.Forms.TextBox E_X_Offset;
         private System.Windows.Forms.CheckBox Check_Immortal;
         private System.Windows.Forms.Label L_HpValue;
         private System.Windows.Forms.Label LHP;
