@@ -55,6 +55,8 @@
             this.numSetHP = new System.Windows.Forms.NumericUpDown();
             this.Set_HP = new System.Windows.Forms.Button();
             this.BUT_Copy = new System.Windows.Forms.Button();
+            this.BUT_Ghost = new System.Windows.Forms.Button();
+            this.lInfo = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabClient.SuspendLayout();
@@ -213,6 +215,8 @@
             // 
             // TabServer
             // 
+            this.TabServer.Controls.Add(this.lInfo);
+            this.TabServer.Controls.Add(this.BUT_Ghost);
             this.TabServer.Controls.Add(this.panel1);
             this.TabServer.Controls.Add(this.Check_Immortal);
             this.TabServer.Controls.Add(this.ComboPlayer);
@@ -348,6 +352,25 @@
             this.BUT_Copy.UseVisualStyleBackColor = true;
             this.BUT_Copy.Click += new System.EventHandler(this.BUT_Copy_Click);
             // 
+            // BUT_Ghost
+            // 
+            this.BUT_Ghost.Location = new System.Drawing.Point(142, 84);
+            this.BUT_Ghost.Name = "BUT_Ghost";
+            this.BUT_Ghost.Size = new System.Drawing.Size(75, 23);
+            this.BUT_Ghost.TabIndex = 28;
+            this.BUT_Ghost.Text = "Make Ghost";
+            this.BUT_Ghost.UseVisualStyleBackColor = true;
+            this.BUT_Ghost.Click += new System.EventHandler(this.BUT_Ghost_Click);
+            // 
+            // lInfo
+            // 
+            this.lInfo.AutoSize = true;
+            this.lInfo.Location = new System.Drawing.Point(223, 87);
+            this.lInfo.Name = "lInfo";
+            this.lInfo.Size = new System.Drawing.Size(328, 13);
+            this.lInfo.TabIndex = 29;
+            this.lInfo.Text = "Zum beenden Hp anpassen. Funktioniert nicht wenn Imortal aktiv ist";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,6 +429,8 @@
         private System.Windows.Forms.Button BUT_SetPos;
         private System.Windows.Forms.TextBox E_X;
         private System.Windows.Forms.Button BUT_Copy;
+        private System.Windows.Forms.Button BUT_Ghost;
+        private System.Windows.Forms.Label lInfo;
     }
 }
 

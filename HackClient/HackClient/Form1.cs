@@ -195,5 +195,10 @@ namespace HackClient
             E_Y.Text = lYValue.Text;
             E_Z.Text = lZValue.Text;
         }
+
+        private void BUT_Ghost_Click(object sender, EventArgs e)
+        {
+            mHandler.ghostmode();
+        }
     }
 }
