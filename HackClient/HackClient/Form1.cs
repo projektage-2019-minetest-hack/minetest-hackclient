@@ -132,7 +132,7 @@ namespace HackClient
 
             for (int i = 0; i < mHandler.playerlist.Count; i++)
             {
-                ComboPlayer.Items.Add(mHandler.playerlist[i].name);//Später name aus dem jeweiligen Player
+                ComboPlayer.Items.Add(/*mHandler.playerlist[i].name*/ "Player "+ mHandler.playerlist.Count);//Später name aus dem jeweiligen Player
             }
             if (ComboPlayer.Items.Count>0)
             {
@@ -151,6 +151,19 @@ namespace HackClient
         private void BUT_SetName_Click(object sender, EventArgs e)
         {
             mHandler.SetName();
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                //mHandler.setchoosenPlayer(-1);
+            }
+            else
+            {
+                //mHandler.setchoosenPlayer(ComboPlayer.SelectedIndex);
+            }
+            
         }
     }
 }
