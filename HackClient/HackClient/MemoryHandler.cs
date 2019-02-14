@@ -54,6 +54,11 @@ namespace HackClient
             return position;
         }
 
+        public void setFistInventorySpace(string amount)
+        {
+            memory.writeMemory(player.offsetFirstItem, "int", amount);
+        }
+
         public void toggleGodmode(bool newstatus)
         {
             if (newstatus)
