@@ -32,6 +32,11 @@ namespace HackClient
             memory.writeMemory(player.offsetLeben, "2bytes", HP);
         }
 
+        public string getHp()
+        {
+            return memory.read2Byte(player.offsetLeben).ToString();
+        }
+
 
         public void setPosition(string x, string y, string z)
         {
@@ -40,12 +45,25 @@ namespace HackClient
             memory.writeMemory(player.offsetz, "float", z);
         }
 
-        public void toggleGodmode()
+        public string[] getPosition()
         {
-            if (immortal)
+            string[] position = new string[3];
+            position[0] = memory.readFloat(player.offsetx).ToString();
+            position[1] = memory.readFloat(player.offsety).ToString();
+            position[2] = memory.readFloat(player.offsetz).ToString();
+            return position;
+        }
+
+        public void setFistInventorySpace(string amount)
+        {
+            memory.writeMemory(player.offsetFirstItem, "int", amount);
+        }
+
+        public void toggleGodmode(bool newstatus)
+        {
+            if (newstatus)
             {
                 immortal = false;
-                godmode.Abort();
             }
             else
             {
