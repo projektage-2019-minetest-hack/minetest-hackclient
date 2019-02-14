@@ -151,7 +151,7 @@ namespace HackClient
 
             for (int i = 0; i < mHandler.playerlist.Count; i++)
             {
-                ComboPlayer.Items.Add(/*mHandler.playerlist[i].name*/ "Player "+ mHandler.playerlist.Count);//Später name aus dem jeweiligen Player
+                ComboPlayer.Items.Add(/*mHandler.playerlist[i].name*/ "Player "+ i);//Später name aus dem jeweiligen Player
             }
 
 
