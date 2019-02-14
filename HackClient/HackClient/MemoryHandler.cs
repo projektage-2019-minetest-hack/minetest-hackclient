@@ -70,6 +70,10 @@ namespace HackClient
             return memory.read2Byte(playerlist[playerId].offsetLeben).ToString();
         }
 
+        public void SetName()
+        {
+
+        }
 
         public void setPosition( string x, string y, string z)
         {

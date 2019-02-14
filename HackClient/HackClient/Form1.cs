@@ -70,7 +70,7 @@ namespace HackClient
             LoadPlayerListwithScan();
             if (ComboPlayer.Items.Count > 0)
             {
-                ComboPlayer.SelectedIndex = 0;
+                
                 E_HP_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsetLeben;
                 E_1Item_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsetFirstItem;
                 E_X_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsetx;
@@ -82,12 +82,13 @@ namespace HackClient
         private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mHandler = new MemoryHandler();
+            LoadPlayerListwithScan();
         }
 
         private void Set_HP_Click(object sender, EventArgs e)
         {
             //mPlayer.offsetLeben =Convert.ToInt32( numericUpDown1.Value);
-            mHandler.setHP(numericUpDown1.Value.ToString());
+            mHandler.setHP(numSetHP.Value.ToString());
 
         }
 
@@ -120,18 +121,22 @@ namespace HackClient
 
         private void LoadPlayerListwithScan()
         {
-            
+
             ComboPlayer.Items.Clear();
 
             mHandler.getPlayerList();
 
-            
 
 
 
-            for (int i =0; i<mHandler.playerlist.Count;i++)
+
+            for (int i = 0; i < mHandler.playerlist.Count; i++)
             {
-                ComboPlayer.Items.Add("Player1");//Später name aus dem jeweiligen Player
+                ComboPlayer.Items.Add(mHandler.playerlist[i].name);//Später name aus dem jeweiligen Player
+            }
+            if (ComboPlayer.Items.Count>0)
+            {
+                ComboPlayer.SelectedIndex = 0;
             }
         }
 
@@ -141,6 +146,11 @@ namespace HackClient
             {
                 mHandler.playerId = ComboPlayer.SelectedIndex;
             }
+        }
+
+        private void BUT_SetName_Click(object sender, EventArgs e)
+        {
+            mHandler.SetName();
         }
     }
 }

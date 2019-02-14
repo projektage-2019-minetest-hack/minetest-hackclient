@@ -35,7 +35,7 @@
             this.Check_Immortal = new System.Windows.Forms.CheckBox();
             this.L_HpValue = new System.Windows.Forms.Label();
             this.LHP = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numSetHP = new System.Windows.Forms.NumericUpDown();
             this.Set_HP = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ComboPlayer = new System.Windows.Forms.ComboBox();
@@ -50,12 +50,16 @@
             this.lyOffset = new System.Windows.Forms.Label();
             this.lXoffset = new System.Windows.Forms.Label();
             this.E_X_Offset = new System.Windows.Forms.TextBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numPlayer = new System.Windows.Forms.NumericUpDown();
             this.L_Anzahl = new System.Windows.Forms.Label();
+            this.L_Namevalue = new System.Windows.Forms.Label();
+            this.lName = new System.Windows.Forms.Label();
+            this.BUT_SetName = new System.Windows.Forms.Button();
+            this.E_NewName = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSetHP)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -103,6 +107,7 @@
             this.Check_Immortal.TabIndex = 16;
             this.Check_Immortal.Text = "Imortal";
             this.Check_Immortal.UseVisualStyleBackColor = true;
+            this.Check_Immortal.CheckedChanged += new System.EventHandler(this.Check_Immortal_CheckedChanged);
             // 
             // L_HpValue
             // 
@@ -122,12 +127,12 @@
             this.LHP.TabIndex = 14;
             this.LHP.Text = "HP:";
             // 
-            // numericUpDown1
+            // numSetHP
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(111, 37);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 12;
+            this.numSetHP.Location = new System.Drawing.Point(111, 37);
+            this.numSetHP.Name = "numSetHP";
+            this.numSetHP.Size = new System.Drawing.Size(120, 20);
+            this.numSetHP.TabIndex = 12;
             // 
             // Set_HP
             // 
@@ -145,7 +150,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel1.Controls.Add(this.L_Anzahl);
-            this.panel1.Controls.Add(this.numericUpDown2);
+            this.panel1.Controls.Add(this.numPlayer);
             this.panel1.Controls.Add(this.ComboPlayer);
             this.panel1.Controls.Add(this.BUT_PlayerLoad);
             this.panel1.Controls.Add(this.E_1Item_Offset);
@@ -276,24 +281,24 @@
             this.E_X_Offset.Size = new System.Drawing.Size(100, 20);
             this.E_X_Offset.TabIndex = 14;
             // 
-            // numericUpDown2
+            // numPlayer
             // 
-            this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown2.Location = new System.Drawing.Point(153, 13);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.numPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numPlayer.Location = new System.Drawing.Point(153, 13);
+            this.numPlayer.Maximum = new decimal(new int[] {
             256,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.numPlayer.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(90, 20);
-            this.numericUpDown2.TabIndex = 23;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.numPlayer.Name = "numPlayer";
+            this.numPlayer.Size = new System.Drawing.Size(90, 20);
+            this.numPlayer.TabIndex = 23;
+            this.numPlayer.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -309,16 +314,55 @@
             this.L_Anzahl.TabIndex = 24;
             this.L_Anzahl.Text = "Anzahl zu Suchender Spieler";
             // 
+            // L_Namevalue
+            // 
+            this.L_Namevalue.AutoSize = true;
+            this.L_Namevalue.Location = new System.Drawing.Point(43, 63);
+            this.L_Namevalue.Name = "L_Namevalue";
+            this.L_Namevalue.Size = new System.Drawing.Size(16, 13);
+            this.L_Namevalue.TabIndex = 21;
+            this.L_Namevalue.Text = "---";
+            // 
+            // lName
+            // 
+            this.lName.AutoSize = true;
+            this.lName.Location = new System.Drawing.Point(12, 63);
+            this.lName.Name = "lName";
+            this.lName.Size = new System.Drawing.Size(25, 13);
+            this.lName.TabIndex = 20;
+            this.lName.Text = "HP:";
+            // 
+            // BUT_SetName
+            // 
+            this.BUT_SetName.Location = new System.Drawing.Point(237, 58);
+            this.BUT_SetName.Name = "BUT_SetName";
+            this.BUT_SetName.Size = new System.Drawing.Size(75, 23);
+            this.BUT_SetName.TabIndex = 19;
+            this.BUT_SetName.Text = "Setze Name";
+            this.BUT_SetName.UseVisualStyleBackColor = true;
+            this.BUT_SetName.Click += new System.EventHandler(this.BUT_SetName_Click);
+            // 
+            // E_NewName
+            // 
+            this.E_NewName.Location = new System.Drawing.Point(111, 60);
+            this.E_NewName.Name = "E_NewName";
+            this.E_NewName.Size = new System.Drawing.Size(120, 20);
+            this.E_NewName.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 540);
+            this.Controls.Add(this.E_NewName);
+            this.Controls.Add(this.L_Namevalue);
+            this.Controls.Add(this.lName);
+            this.Controls.Add(this.BUT_SetName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Check_Immortal);
             this.Controls.Add(this.L_HpValue);
             this.Controls.Add(this.LHP);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numSetHP);
             this.Controls.Add(this.Set_HP);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.menuStrip1);
@@ -329,10 +373,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSetHP)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,7 +391,7 @@
         private System.Windows.Forms.CheckBox Check_Immortal;
         private System.Windows.Forms.Label L_HpValue;
         private System.Windows.Forms.Label LHP;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numSetHP;
         private System.Windows.Forms.Button Set_HP;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox E_1Item_Offset;
@@ -363,7 +407,11 @@
         private System.Windows.Forms.Button BUT_PlayerLoad;
         private System.Windows.Forms.ComboBox ComboPlayer;
         private System.Windows.Forms.Label L_Anzahl;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numPlayer;
+        private System.Windows.Forms.Label L_Namevalue;
+        private System.Windows.Forms.Label lName;
+        private System.Windows.Forms.Button BUT_SetName;
+        private System.Windows.Forms.TextBox E_NewName;
     }
 }
 
