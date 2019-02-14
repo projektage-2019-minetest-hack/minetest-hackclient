@@ -51,6 +51,11 @@ namespace HackClient
             foreach(long offset in offsetofplayer)
             {
                 Player player = new Player(offset);
+                //byte[] bA = memory.readBytes("0x" + (player.mainoffset + 516).ToString("x8"),4); //bA = base Adress
+                                                                                                 //player.name = memory.readString("0x" + (baseOfNameAdress + 172).ToString("x8"));
+                //ulong adresse = memory.readUInt("0x" + (player.mainoffset + 516).ToString("x8"));//"0x" + bA[3].ToString("x2") + "" + bA[2].ToString("x2") + "" + bA[1].ToString("x2") + "" + bA[0].ToString("x2"));
+
+//player.name
                 playerlist.Add(player);
             }
                 
