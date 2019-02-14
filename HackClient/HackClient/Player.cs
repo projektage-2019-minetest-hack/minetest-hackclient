@@ -23,13 +23,15 @@ namespace HackClient
         {
             if (isSelf)
             {
-                
+                offsetx = "0x" + (offset + 428).ToString("x8");
+                offsety = "0x" + (offset + 432).ToString("x8");
+                offsetz = "0x" + (offset + 436).ToString("x8");
             }
             else
             {
                 ownOffset = "0x" + offset.ToString("x8");
                 offsetLeben = "0x" + (offset + 104).ToString("x8");
-              mainoffset = offset;
+                mainoffset = offset;
             }
             
             //getting name

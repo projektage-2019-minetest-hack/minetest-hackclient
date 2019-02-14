@@ -72,10 +72,12 @@ namespace HackClient
             if(id == -1)
             {
                 chosenPlayer = Self;
+                playerId = -1;
             }
             else
             {
                 chosenPlayer = playerlist[id];
+                playerId = id;
             }
         }
 
