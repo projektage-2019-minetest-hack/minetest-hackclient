@@ -32,12 +32,26 @@ namespace HackClient
             memory.writeMemory(player.offsetLeben, "2bytes", HP);
         }
 
+        public string getHp()
+        {
+            return memory.read2Byte(player.offsetLeben).ToString();
+        }
+
 
         public void setPosition(string x, string y, string z)
         {
             memory.writeMemory(player.offsetx, "float", x);
             memory.writeMemory(player.offsety, "float", y);
             memory.writeMemory(player.offsetz, "float", z);
+        }
+
+        public string[] getPosition()
+        {
+            string[] position = new string[3];
+            position[0] = memory.readFloat(player.offsetx).ToString();
+            position[1] = memory.readFloat(player.offsety).ToString();
+            position[2] = memory.readFloat(player.offsetz).ToString();
+            return position;
         }
 
         public void toggleGodmode(bool newstatus)
