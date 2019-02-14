@@ -38,6 +38,7 @@ namespace HackClient
 
             while (!backgroundWorker.CancellationPending && !Closing)
             {
+                Thread.Sleep(1);
                 try
                 {
                     this.Invoke((MethodInvoker)delegate ()
@@ -150,7 +151,7 @@ namespace HackClient
 
             for (int i = 0; i < mHandler.playerlist.Count; i++)
             {
-                ComboPlayer.Items.Add(/*mHandler.playerlist[i].name*/ "Player "+ mHandler.playerlist.Count);//Später name aus dem jeweiligen Player
+                ComboPlayer.Items.Add(/*mHandler.playerlist[i].name*/ "Player "+ i);//Später name aus dem jeweiligen Player
             }
 
 
