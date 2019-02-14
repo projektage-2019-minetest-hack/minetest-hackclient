@@ -86,7 +86,7 @@ namespace HackClient
         public void setHP(string HP)
         {
             //memory.writeMemory(playerlist[playerId].offsetLeben, "2bytes", HP);
-            if (chosenPlayer.offsetLeben == "NO")
+            if (!(chosenPlayer.offsetLeben == "NO"))
             {
                 memory.writeMemory(chosenPlayer.offsetLeben, "2bytes", HP);
             }
@@ -96,8 +96,8 @@ namespace HackClient
         public string getHp()
         {
             //return memory.read2Byte(playerlist[playerId].offsetLeben).ToString();
-            
-            if (chosenPlayer.offsetLeben == "NO")
+
+            if (!(chosenPlayer.offsetLeben == "NO"))
             {
                     string HP = memory.read2Byte(chosenPlayer.offsetLeben).ToString();
                     return HP;
@@ -115,7 +115,7 @@ namespace HackClient
 
         public string getName()
         {
-            if(chosenPlayer.offsetName == "NO")
+            if (!(chosenPlayer.offsetName == "NO"))
             {
                 string name = memory.readString(chosenPlayer.offsetName);
                 return name;
@@ -133,8 +133,7 @@ namespace HackClient
             memory.writeMemory(playerlist[playerId].offsety, "float", y);
             memory.writeMemory(playerlist[playerId].offsetz, "float", z);
             */
-            ;
-            if (chosenPlayer.offsetx == "NO")
+            if (!(chosenPlayer.offsetx == "NO"))
             {
                 memory.writeMemory(chosenPlayer.offsetx, "float", x);
                 memory.writeMemory(chosenPlayer.offsety, "float", y);
@@ -151,7 +150,7 @@ namespace HackClient
             position[1] = memory.readFloat(playerlist[playerId].offsety).ToString();
             position[2] = memory.readFloat(playerlist[playerId].offsetz).ToString();
             */
-            if (chosenPlayer.offsetx == "NO")
+            if (!(chosenPlayer.offsetx == "NO"))
             {
                 position[0] = memory.readFloat(chosenPlayer.offsetx).ToString();
                 position[1] = memory.readFloat(chosenPlayer.offsety).ToString();
