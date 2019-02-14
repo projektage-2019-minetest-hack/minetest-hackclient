@@ -14,11 +14,11 @@ namespace HackClient
         public int processID = 0;
         public bool processExsits = false;
         //public Player player = new Player();
-        public List<Player> playerlist= new List<Player>();
+        public List<Player> playerlist = new List<Player>();
         public bool immortal = false;
         private Thread godmode;
         public int playerId = 0;
-
+        public Player Self;
 
         public MemoryHandler()
         {
@@ -32,23 +32,23 @@ namespace HackClient
             godmode = new Thread(godLoop);
         }
 
-        public async void getPlayerList(int MaxPlayer)
+        public async void getPlayerList()
         {       //83 EC 0C C7 05 98 19 AE 00 01 00 00 00
                 //E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05
                 //bool keepGoing = true;
                 //int playernumber = 1;
                 //while (keepGoing)
-                List<long> offsetofplayer = (await memory.AoBScan("E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).ToList();
-                /*if (offsetofplayer <= 0)
-                {
-                    continue;
-                }
-                else
-                {
-                    Player player = new Player(offsetofplayer);
-                    playerlist.Add(player);
-                }*/
-            foreach(long offset in offsetofplayer)
+            List<long> offsetofplayer = (await memory.AoBScan("E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).ToList();
+            /*if (offsetofplayer <= 0)
+            {
+                continue;
+            }
+            else
+            {
+                Player player = new Player(offsetofplayer);
+                playerlist.Add(player);
+            }*/
+            foreach (long offset in offsetofplayer)
             {
                 Player player = new Player(offset);
                 //byte[] bA = memory.readBytes("0x" + (player.mainoffset + 516).ToString("x8"),4); //bA = base Adress
@@ -58,8 +58,9 @@ namespace HackClient
 //player.name
                 playerlist.Add(player);
             }
-                
-           
+
+            long offsetself = (await memory.AoBScan("18 FC A9 00 00 00 00 00", true)).FirstOrDefault();
+            Self = new Player(offsetself);
             //long playeroffset = (await memory.AoBScan("E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).FirstOrDefault();
             //player.ownOffset = "0x"+playeroffset.ToString("x8");
             //player.offsetLeben = "0x"+(playeroffset + 104).ToString("x8");
@@ -75,8 +76,12 @@ namespace HackClient
             return memory.read2Byte(playerlist[playerId].offsetLeben).ToString();
         }
 
+        public void SetName()
+        {
 
-        public void setPosition( string x, string y, string z)
+        }
+
+        public void setPosition(string x, string y, string z)
         {
             memory.writeMemory(playerlist[playerId].offsetx, "float", x);
             memory.writeMemory(playerlist[playerId].offsety, "float", y);
@@ -94,13 +99,13 @@ namespace HackClient
         }
 
         //sets the amount of items in the first inventoryspace
-        public void setFistInventorySpace( string amount)
+        public void setFistInventorySpace(string amount)
         {
             memory.writeMemory(playerlist[playerId].offsetFirstItem, "int", amount);
         }
 
         //starts of stops the godmode based on the status of the checkbox
-        public void toggleGodmode( bool newstatus)
+        public void toggleGodmode(bool newstatus)
         {
             if (!newstatus)
             {
@@ -112,7 +117,7 @@ namespace HackClient
                 godmode.Start();
             }
         }
-        
+
         //Loop that causes the "GodMode"
         public void godLoop()
         {
@@ -120,7 +125,7 @@ namespace HackClient
             while (immortal)
             {
                 setHP("20");
-               
+
             }
         }
     }
