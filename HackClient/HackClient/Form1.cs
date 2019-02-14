@@ -43,6 +43,7 @@ namespace HackClient
                         {
                             //LHP.Text = MemoryHandler.GetHP();
                             // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
+                            LHP.Text = mHandler.getHp();
                         });
                 }
                 catch
@@ -62,16 +63,24 @@ namespace HackClient
             backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
             backgroundWorker.ProgressChanged += BackgroundWorkerOnProgressChanged;
             backgroundWorker.RunWorkerAsync();
+
+            E_HP_Offset.Text = mPlayer.offsetLeben;
+            E_1Item_Offset.Text = mPlayer.offsetFirstItem;
+            E_X_Offset.Text = mPlayer.offsetx;
+            E_Y_Offset.Text = mPlayer.offsety;
+            E_Z_Offset.Text = mPlayer.offsetz;
+
         }
 
         private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            mHandler = new MemoryHandler();
         }
 
         private void Set_HP_Click(object sender, EventArgs e)
         {
             //mPlayer.offsetLeben =Convert.ToInt32( numericUpDown1.Value);
+            mHandler.setHP(numericUpDown1.Value.ToString());
 
         }
 
@@ -83,13 +92,17 @@ namespace HackClient
 
         private void Check_Immortal_CheckedChanged(object sender, EventArgs e)
         {
-            //mHandler.toggleGodmode(Check_Immortal.Checked);
-            mHandler.toggleGodmode();
+            mHandler.toggleGodmode(Check_Immortal.Checked);
+            //mHandler.toggleGodmode();
         }
 
         private void BUT_SaveOffsets_Click(object sender, EventArgs e)
         {
-
+            mPlayer.offsetLeben = E_HP_Offset.Text;
+            mPlayer.offsetFirstItem = E_1Item_Offset.Text;
+            mPlayer.offsetx= E_X_Offset.Text;
+            mPlayer.offsety = E_Y_Offset.Text;
+            mPlayer.offsetz = E_Z_Offset.Text;
         }
     }
 }

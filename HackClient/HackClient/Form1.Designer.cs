@@ -41,6 +41,14 @@
             this.E_HP_Offset = new System.Windows.Forms.TextBox();
             this.lHPOffset = new System.Windows.Forms.Label();
             this.BUT_SaveOffsets = new System.Windows.Forms.Button();
+            this.E_X_Offset = new System.Windows.Forms.TextBox();
+            this.lXoffset = new System.Windows.Forms.Label();
+            this.E_Y_Offset = new System.Windows.Forms.TextBox();
+            this.lyOffset = new System.Windows.Forms.Label();
+            this.E_Z_Offset = new System.Windows.Forms.TextBox();
+            this.lzoffset = new System.Windows.Forms.Label();
+            this.E_1Item_Offset = new System.Windows.Forms.TextBox();
+            this.lFirstItemoffset = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -138,6 +146,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.E_1Item_Offset);
+            this.tabPage2.Controls.Add(this.lFirstItemoffset);
+            this.tabPage2.Controls.Add(this.E_Z_Offset);
+            this.tabPage2.Controls.Add(this.lzoffset);
+            this.tabPage2.Controls.Add(this.E_Y_Offset);
+            this.tabPage2.Controls.Add(this.lyOffset);
+            this.tabPage2.Controls.Add(this.E_X_Offset);
+            this.tabPage2.Controls.Add(this.lXoffset);
             this.tabPage2.Controls.Add(this.BUT_SaveOffsets);
             this.tabPage2.Controls.Add(this.E_HP_Offset);
             this.tabPage2.Controls.Add(this.lHPOffset);
@@ -151,7 +167,7 @@
             // 
             // E_HP_Offset
             // 
-            this.E_HP_Offset.Location = new System.Drawing.Point(79, 19);
+            this.E_HP_Offset.Location = new System.Drawing.Point(106, 19);
             this.E_HP_Offset.Name = "E_HP_Offset";
             this.E_HP_Offset.Size = new System.Drawing.Size(100, 20);
             this.E_HP_Offset.TabIndex = 1;
@@ -174,6 +190,70 @@
             this.BUT_SaveOffsets.Text = "Speicher Offsets";
             this.BUT_SaveOffsets.UseVisualStyleBackColor = true;
             this.BUT_SaveOffsets.Click += new System.EventHandler(this.BUT_SaveOffsets_Click);
+            // 
+            // E_X_Offset
+            // 
+            this.E_X_Offset.Location = new System.Drawing.Point(106, 45);
+            this.E_X_Offset.Name = "E_X_Offset";
+            this.E_X_Offset.Size = new System.Drawing.Size(100, 20);
+            this.E_X_Offset.TabIndex = 4;
+            // 
+            // lXoffset
+            // 
+            this.lXoffset.AutoSize = true;
+            this.lXoffset.Location = new System.Drawing.Point(20, 48);
+            this.lXoffset.Name = "lXoffset";
+            this.lXoffset.Size = new System.Drawing.Size(45, 13);
+            this.lXoffset.TabIndex = 3;
+            this.lXoffset.Text = "X Offset";
+            // 
+            // E_Y_Offset
+            // 
+            this.E_Y_Offset.Location = new System.Drawing.Point(106, 71);
+            this.E_Y_Offset.Name = "E_Y_Offset";
+            this.E_Y_Offset.Size = new System.Drawing.Size(100, 20);
+            this.E_Y_Offset.TabIndex = 6;
+            // 
+            // lyOffset
+            // 
+            this.lyOffset.AutoSize = true;
+            this.lyOffset.Location = new System.Drawing.Point(20, 74);
+            this.lyOffset.Name = "lyOffset";
+            this.lyOffset.Size = new System.Drawing.Size(45, 13);
+            this.lyOffset.TabIndex = 5;
+            this.lyOffset.Text = "Y Offset";
+            // 
+            // E_Z_Offset
+            // 
+            this.E_Z_Offset.Location = new System.Drawing.Point(106, 97);
+            this.E_Z_Offset.Name = "E_Z_Offset";
+            this.E_Z_Offset.Size = new System.Drawing.Size(100, 20);
+            this.E_Z_Offset.TabIndex = 8;
+            // 
+            // lzoffset
+            // 
+            this.lzoffset.AutoSize = true;
+            this.lzoffset.Location = new System.Drawing.Point(20, 100);
+            this.lzoffset.Name = "lzoffset";
+            this.lzoffset.Size = new System.Drawing.Size(45, 13);
+            this.lzoffset.TabIndex = 7;
+            this.lzoffset.Text = "Z Offset";
+            // 
+            // E_1Item_Offset
+            // 
+            this.E_1Item_Offset.Location = new System.Drawing.Point(106, 123);
+            this.E_1Item_Offset.Name = "E_1Item_Offset";
+            this.E_1Item_Offset.Size = new System.Drawing.Size(100, 20);
+            this.E_1Item_Offset.TabIndex = 10;
+            // 
+            // lFirstItemoffset
+            // 
+            this.lFirstItemoffset.AutoSize = true;
+            this.lFirstItemoffset.Location = new System.Drawing.Point(20, 126);
+            this.lFirstItemoffset.Name = "lFirstItemoffset";
+            this.lFirstItemoffset.Size = new System.Drawing.Size(80, 13);
+            this.lFirstItemoffset.TabIndex = 9;
+            this.lFirstItemoffset.Text = "First Item Offset";
             // 
             // Form1
             // 
@@ -215,6 +295,14 @@
         private System.Windows.Forms.TextBox E_HP_Offset;
         private System.Windows.Forms.CheckBox Check_Immortal;
         private System.Windows.Forms.Button BUT_SaveOffsets;
+        private System.Windows.Forms.TextBox E_1Item_Offset;
+        private System.Windows.Forms.Label lFirstItemoffset;
+        private System.Windows.Forms.TextBox E_Z_Offset;
+        private System.Windows.Forms.Label lzoffset;
+        private System.Windows.Forms.TextBox E_Y_Offset;
+        private System.Windows.Forms.Label lyOffset;
+        private System.Windows.Forms.TextBox E_X_Offset;
+        private System.Windows.Forms.Label lXoffset;
     }
 }
 
