@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Memory;
+using System.Threading;
 
 namespace HackClient
 {
@@ -41,9 +42,12 @@ namespace HackClient
                 {
                     this.Invoke((MethodInvoker)delegate ()
                         {
-                            //LHP.Text = MemoryHandler.GetHP();
-                            // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
-                            LHP.Text = mHandler.getHp();
+                            if (ComboPlayer.SelectedIndex != -1 && ComboPlayer.Items.Count > 0)
+                            {
+                                //LHP.Text = MemoryHandler.GetHP();
+                                // worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
+                                LHP.Text = mHandler.getHp();
+                            }
                         });
                 }
                 catch
@@ -116,11 +120,26 @@ namespace HackClient
 
         private void LoadPlayerListwithScan()
         {
+            
             ComboPlayer.Items.Clear();
-            mHandler.getPlayerList();
-            for(int i =0; i<mHandler.playerlist.Count;i++)
+
+                mHandler.getPlayerList(Convert.ToInt32( numericUpDown2.Value));
+
+            
+
+
+
+            for (int i =0; i<mHandler.playerlist.Count;i++)
             {
                 ComboPlayer.Items.Add("Player1");//Später name aus dem jeweiligen Player
+            }
+        }
+
+        private void ComboPlayer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboPlayer.Items.Count > 0 && ComboPlayer.SelectedIndex != -1)
+            {
+                mHandler.playerId = ComboPlayer.SelectedIndex;
             }
         }
     }

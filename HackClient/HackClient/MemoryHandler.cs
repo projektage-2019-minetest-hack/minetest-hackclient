@@ -32,13 +32,13 @@ namespace HackClient
             godmode = new Thread(godLoop);
         }
 
-        public async void getPlayerList()
+        public async void getPlayerList(int MaxPlayer)
         {       //83 EC 0C C7 05 98 19 AE 00 01 00 00 00
                 //E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05
                 //bool keepGoing = true;
                 //int playernumber = 1;
                 //while (keepGoing)
-            for (int i = 0; i < 256; i++)
+            for (int i = 0; i < MaxPlayer; i++)
             {
                 IEnumerable<long> thelist;
                 List<long> offsetofplayer = (await memory.AoBScan("E0 22 AA 00 " + i.ToString("x2") + " 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).ToList();
