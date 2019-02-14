@@ -74,10 +74,17 @@ namespace HackClient
                 WorkerReportsProgress = true,
                 WorkerSupportsCancellation = true
             };
+            LoadPlayerListwithScan();
+            
+            
+                mHandler.setChosenPlayer(-1);
+            
+            
             backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
             backgroundWorker.ProgressChanged += BackgroundWorkerOnProgressChanged;
             backgroundWorker.RunWorkerAsync();
-            LoadPlayerListwithScan();
+            
+            /*
             if (ComboPlayer.Items.Count > 0)
             {
                 
@@ -87,6 +94,7 @@ namespace HackClient
                 E_Y_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsety;
                 E_Z_Offset.Text = mHandler.playerlist[ComboPlayer.SelectedIndex].offsetz;
             }
+            */
         }
 
         private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
