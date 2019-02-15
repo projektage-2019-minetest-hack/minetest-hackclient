@@ -98,7 +98,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(575, 203);
+            this.tabControl1.Size = new System.Drawing.Size(575, 209);
             this.tabControl1.TabIndex = 23;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -123,7 +123,7 @@
             this.TabClient.Location = new System.Drawing.Point(4, 22);
             this.TabClient.Name = "TabClient";
             this.TabClient.Padding = new System.Windows.Forms.Padding(3);
-            this.TabClient.Size = new System.Drawing.Size(567, 177);
+            this.TabClient.Size = new System.Drawing.Size(567, 183);
             this.TabClient.TabIndex = 1;
             this.TabClient.Text = "Client";
             this.TabClient.UseVisualStyleBackColor = true;
@@ -246,7 +246,7 @@
             this.TabServer.Location = new System.Drawing.Point(4, 22);
             this.TabServer.Name = "TabServer";
             this.TabServer.Padding = new System.Windows.Forms.Padding(3);
-            this.TabServer.Size = new System.Drawing.Size(567, 154);
+            this.TabServer.Size = new System.Drawing.Size(567, 177);
             this.TabServer.TabIndex = 0;
             this.TabServer.Text = "Server";
             this.TabServer.UseVisualStyleBackColor = true;
@@ -425,15 +425,16 @@
             this.lDesc.AutoSize = true;
             this.lDesc.Location = new System.Drawing.Point(6, 151);
             this.lDesc.Name = "lDesc";
-            this.lDesc.Size = new System.Drawing.Size(374, 13);
+            this.lDesc.Size = new System.Drawing.Size(377, 26);
             this.lDesc.TabIndex = 16;
-            this.lDesc.Text = "Alt+ Pfeiltaste oder Leertaste (Anhand der Himmelsrichtung nicht Sichtrichtung";
+            this.lDesc.Text = "Alt+ Pfeiltaste oder Leertaste (Anhand der Himmelsrichtung nicht Sichtrichtung)\r\n" +
+    "Strg + Alt +Pfeiltaste oder Leertaste  für entgegengesetzte Richtung";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 230);
+            this.ClientSize = new System.Drawing.Size(590, 236);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
