@@ -61,6 +61,8 @@
             this.numTeleportLenght = new System.Windows.Forms.NumericUpDown();
             this.lJumpdistance = new System.Windows.Forms.Label();
             this.lDesc = new System.Windows.Forms.Label();
+            this.lBlickRichtung = new System.Windows.Forms.Label();
+            this.lBlickbesch = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabClient.SuspendLayout();
@@ -104,6 +106,8 @@
             // 
             // TabClient
             // 
+            this.TabClient.Controls.Add(this.lBlickbesch);
+            this.TabClient.Controls.Add(this.lBlickRichtung);
             this.TabClient.Controls.Add(this.lDesc);
             this.TabClient.Controls.Add(this.lJumpdistance);
             this.TabClient.Controls.Add(this.numTeleportLenght);
@@ -430,6 +434,24 @@
             this.lDesc.Text = "Alt+ Pfeiltaste oder Leertaste (Anhand der Himmelsrichtung nicht Sichtrichtung)\r\n" +
     "Strg + Pfeiltaste oder Leertaste  für entgegengesetzte Richtung";
             // 
+            // lBlickRichtung
+            // 
+            this.lBlickRichtung.AutoSize = true;
+            this.lBlickRichtung.Location = new System.Drawing.Point(548, 164);
+            this.lBlickRichtung.Name = "lBlickRichtung";
+            this.lBlickRichtung.Size = new System.Drawing.Size(13, 13);
+            this.lBlickRichtung.TabIndex = 17;
+            this.lBlickRichtung.Text = "--";
+            // 
+            // lBlickbesch
+            // 
+            this.lBlickbesch.AutoSize = true;
+            this.lBlickbesch.Location = new System.Drawing.Point(446, 164);
+            this.lBlickbesch.Name = "lBlickbesch";
+            this.lBlickbesch.Size = new System.Drawing.Size(96, 13);
+            this.lBlickbesch.TabIndex = 18;
+            this.lBlickbesch.Text = "Blickrichtungswert:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,6 +517,8 @@
         private System.Windows.Forms.Label lJumpdistance;
         private System.Windows.Forms.NumericUpDown numTeleportLenght;
         private System.Windows.Forms.Label lDesc;
+        private System.Windows.Forms.Label lBlickbesch;
+        private System.Windows.Forms.Label lBlickRichtung;
     }
 }
 

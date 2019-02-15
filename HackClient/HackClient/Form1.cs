@@ -87,6 +87,7 @@ namespace HackClient
                                 lXValue.Text = pos[0];
                                 lYValue.Text = pos[1];
                                 lZValue.Text = pos[2];
+                                lBlickRichtung.Text = mHandler.getRotation().ToString();
                             }
                             else
                             {
