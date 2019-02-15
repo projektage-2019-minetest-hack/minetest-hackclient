@@ -42,12 +42,13 @@ namespace HackClient
       
             foreach (long offset in offsetofplayer)
             {
-                Player player = new Player(offset, false);
+                Player player = new Player(offset, false, 0);
                 playerlist.Add(player);
             }
 
             long offsetself = (await memory.AoBScan("18 FC A9 00 00 00 00 00", true)).FirstOrDefault();
-            Self = new Player(offsetself, true);
+            long offsetcamera = (await memory.AoBScan("18 FC A9 00 00 00 00 00", true)).FirstOrDefault();
+            Self = new Player(offsetself, true, offsetcamera);
             //long playeroffset = (await memory.AoBScan("E0 22 AA 00 ?? 00 ?? 00 00 00 00 ?? 39 05 39 05", true)).FirstOrDefault();
         }
 
@@ -72,7 +73,6 @@ namespace HackClient
             {
                 memory.writeMemory(chosenPlayer.offsetLeben, "2bytes", HP);
             }
-            
         }
 
         public string getHp()
@@ -134,10 +134,21 @@ namespace HackClient
             
         }
 
-        //sets the amount of items in the first inventoryspace
-        public void setFistInventorySpace(string amount)
+        public float getRotation()
         {
-            memory.writeMemory(playerlist[playerId].offsetFirstItem, "int", amount);
+            float rotation = 0;
+            rotation = memory.readFloat(chosenPlayer.offsetdirection);
+            return rotation;
+        }
+
+        public void move(double distance)
+        {
+            string[] currentposition = getPosition();
+            //Calculate
+            float rotation = getRotation();
+
+            setPosition(currentposition[0], currentposition[1], currentposition[2]);
+
         }
 
         //starts of stops the godmode based on the status of the checkbox

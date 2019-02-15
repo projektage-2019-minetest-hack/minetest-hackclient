@@ -13,13 +13,15 @@ namespace HackClient
         public string offsetx;
         public string offsety;
         public string offsetz;
-        public string offsetFirstItem;
+        public string offsetCamera;
+        public string offsetdirection;
         public string ownOffset;
         public string offsetName;
         public long mainoffset;
+        public long chameraoffset;
         public string name;
 
-        public Player(long offset, bool isSelf)
+        public Player(long offset, bool isSelf, long camera)
         {
             if (isSelf)
             {
@@ -28,6 +30,7 @@ namespace HackClient
                 offsetz = "0x" + (offset + 436).ToString("x8");
                 offsetLeben = "NO";
                 offsetName = "0x" + (offset + 200).ToString("x8");
+                offsetdirection = "0x" + (camera + 0).ToString("x8");
             }
             else
             {
@@ -36,6 +39,7 @@ namespace HackClient
                 offsety = "NO";
                 offsetz = "NO";
                 offsetName = "NO";
+                offsetCamera = "NO";
             }
             ownOffset = "0x" + offset.ToString("x8");
             mainoffset = offset;
