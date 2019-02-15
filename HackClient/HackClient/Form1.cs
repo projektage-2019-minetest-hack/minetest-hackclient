@@ -30,11 +30,11 @@ namespace HackClient
             RegisterHotKey(this.Handle, mActionHotKeyIDUp, 1, (int)Keys.Up);
             RegisterHotKey(this.Handle, mActionHotKeyIDDown, 1, (int)Keys.Down);
             RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, 1, (int)Keys.Space);
-            RegisterHotKey(this.Handle, mActionHotKeyIDLeft, 3, (int)Keys.Left);
-            RegisterHotKey(this.Handle, mActionHotKeyIDRight, 3, (int)Keys.Right);
-            RegisterHotKey(this.Handle, mActionHotKeyIDUp, 3, (int)Keys.Up);
-            RegisterHotKey(this.Handle, mActionHotKeyIDDown, 3, (int)Keys.Down);
-            RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, 3, (int)Keys.Space);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRLeft, 3, (int)Keys.Left);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRRight, 3, (int)Keys.Right);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRUp, 3, (int)Keys.Up);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRDown, 3, (int)Keys.Down);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRSPACE, 3, (int)Keys.Space);
 
         }
         const int mActionHotKeyIDLeft = 1;
