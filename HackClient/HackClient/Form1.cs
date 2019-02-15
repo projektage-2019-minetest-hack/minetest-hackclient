@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Memory;
 using System.Threading;
@@ -14,6 +15,7 @@ namespace HackClient
 {
     public partial class Form1 : Form
     {
+        
         //public Mem mMemory = new Mem();
         private MemoryHandler mHandler = new MemoryHandler();
         //Player mPlayer = new Player();
@@ -23,9 +25,22 @@ namespace HackClient
         public Form1()
         {
             InitializeComponent();
-
+            RegisterHotKey(this.Handle, mActionHotKeyIDLeft, 0, (int)Keys.Left);
+            RegisterHotKey(this.Handle, mActionHotKeyIDRight, 0, (int)Keys.Right);
+            RegisterHotKey(this.Handle, mActionHotKeyIDUp, 0, (int)Keys.Up);
+            RegisterHotKey(this.Handle, mActionHotKeyIDDown, 0, (int)Keys.Down);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, 0, (int)Keys.Space);
 
         }
+        const int mActionHotKeyIDLeft = 1;
+        const int mActionHotKeyIDRight = 2;
+        const int mActionHotKeyIDUp = 3;
+        const int mActionHotKeyIDDown = 4;
+        const int mActionHotKeyIDSPACE = 5;
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWd, int id, int fsModifiers, int key);
+        [DllImport("user32.dll")]
+        public static extern bool UnregisterHotKey(IntPtr hwnd, int id);
 
         private void BackgroundWorkerOnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -201,5 +216,31 @@ namespace HackClient
         {
             mHandler.ghostmode();
         }
+        
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDLeft)
+            {
+                //Do something here, the key pressed matches our listener
+            }
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDRight)
+            {
+                //Do something here, the key pressed matches our listener
+            }
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDUp)
+            {
+                //Do something here, the key pressed matches our listener
+            }
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDDown)
+            {
+                //Do something here, the key pressed matches our listener
+            }
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDSPACE)
+            {
+                //Do something here, the key pressed matches our listener
+            }
+            base.WndProc(ref m);
+        }
+
     }
 }
