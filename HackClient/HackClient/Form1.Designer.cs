@@ -428,7 +428,7 @@
             this.lDesc.Size = new System.Drawing.Size(377, 26);
             this.lDesc.TabIndex = 16;
             this.lDesc.Text = "Alt+ Pfeiltaste oder Leertaste (Anhand der Himmelsrichtung nicht Sichtrichtung)\r\n" +
-    "Strg + Alt +Pfeiltaste oder Leertaste  für entgegengesetzte Richtung";
+    "Strg + Pfeiltaste oder Leertaste  für entgegengesetzte Richtung";
             // 
             // Form1
             // 
