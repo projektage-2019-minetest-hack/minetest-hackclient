@@ -36,9 +36,9 @@ namespace HackClient
             RegisterHotKey(this.Handle, mActionHotKeyIDSTRDown, strg, (int)Keys.Down);
             RegisterHotKey(this.Handle, mActionHotKeyIDSTRSPACE, strg, (int)Keys.Space);
 
-            RegisterHotKey(this.Handle, mActionHotKeyIDSTRW, strg, (int)Keys.W);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRW, alt, (int)Keys.W);
             //RegisterHotKey(this.Handle, mActionHotKeyIDSTRA, strg, (int)Keys.A);
-            RegisterHotKey(this.Handle, mActionHotKeyIDSTRS, strg, (int)Keys.S);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRS, alt, (int)Keys.S);
             //RegisterHotKey(this.Handle, mActionHotKeyIDSTRD, strg, (int)Keys.D);
 
         }

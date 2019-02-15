@@ -32,6 +32,12 @@
             this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabClient = new System.Windows.Forms.TabPage();
+            this.lBlickbesch = new System.Windows.Forms.Label();
+            this.lBlickRichtung = new System.Windows.Forms.Label();
+            this.lDesc = new System.Windows.Forms.Label();
+            this.lJumpdistance = new System.Windows.Forms.Label();
+            this.numTeleportLenght = new System.Windows.Forms.NumericUpDown();
+            this.L_Playername = new System.Windows.Forms.Label();
             this.BUT_Copy = new System.Windows.Forms.Button();
             this.E_Z = new System.Windows.Forms.TextBox();
             this.E_Y = new System.Windows.Forms.TextBox();
@@ -57,20 +63,14 @@
             this.LHP = new System.Windows.Forms.Label();
             this.numSetHP = new System.Windows.Forms.NumericUpDown();
             this.Set_HP = new System.Windows.Forms.Button();
-            this.L_Playername = new System.Windows.Forms.Label();
-            this.numTeleportLenght = new System.Windows.Forms.NumericUpDown();
-            this.lJumpdistance = new System.Windows.Forms.Label();
-            this.lDesc = new System.Windows.Forms.Label();
-            this.lBlickRichtung = new System.Windows.Forms.Label();
-            this.lBlickbesch = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabClient.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTeleportLenght)).BeginInit();
             this.TabServer.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSetHP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numTeleportLenght)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -131,6 +131,74 @@
             this.TabClient.TabIndex = 1;
             this.TabClient.Text = "Client";
             this.TabClient.UseVisualStyleBackColor = true;
+            // 
+            // lBlickbesch
+            // 
+            this.lBlickbesch.AutoSize = true;
+            this.lBlickbesch.Location = new System.Drawing.Point(446, 164);
+            this.lBlickbesch.Name = "lBlickbesch";
+            this.lBlickbesch.Size = new System.Drawing.Size(96, 13);
+            this.lBlickbesch.TabIndex = 18;
+            this.lBlickbesch.Text = "Blickrichtungswert:";
+            // 
+            // lBlickRichtung
+            // 
+            this.lBlickRichtung.AutoSize = true;
+            this.lBlickRichtung.Location = new System.Drawing.Point(541, 164);
+            this.lBlickRichtung.Name = "lBlickRichtung";
+            this.lBlickRichtung.Size = new System.Drawing.Size(13, 13);
+            this.lBlickRichtung.TabIndex = 17;
+            this.lBlickRichtung.Text = "--";
+            // 
+            // lDesc
+            // 
+            this.lDesc.AutoSize = true;
+            this.lDesc.Location = new System.Drawing.Point(6, 151);
+            this.lDesc.Name = "lDesc";
+            this.lDesc.Size = new System.Drawing.Size(377, 26);
+            this.lDesc.TabIndex = 16;
+            this.lDesc.Text = "Alt+ Pfeiltaste oder Leertaste (Anhand der Himmelsrichtung nicht Sichtrichtung)\r\n" +
+    "Strg + Pfeiltaste oder Leertaste  für entgegengesetzte Richtung";
+            // 
+            // lJumpdistance
+            // 
+            this.lJumpdistance.AutoSize = true;
+            this.lJumpdistance.Location = new System.Drawing.Point(6, 132);
+            this.lJumpdistance.Name = "lJumpdistance";
+            this.lJumpdistance.Size = new System.Drawing.Size(82, 13);
+            this.lJumpdistance.TabIndex = 15;
+            this.lJumpdistance.Text = "Teleport Länge:";
+            // 
+            // numTeleportLenght
+            // 
+            this.numTeleportLenght.Location = new System.Drawing.Point(94, 128);
+            this.numTeleportLenght.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numTeleportLenght.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.numTeleportLenght.Name = "numTeleportLenght";
+            this.numTeleportLenght.Size = new System.Drawing.Size(120, 20);
+            this.numTeleportLenght.TabIndex = 14;
+            this.numTeleportLenght.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // L_Playername
+            // 
+            this.L_Playername.AutoSize = true;
+            this.L_Playername.Location = new System.Drawing.Point(6, 3);
+            this.L_Playername.Name = "L_Playername";
+            this.L_Playername.Size = new System.Drawing.Size(13, 13);
+            this.L_Playername.TabIndex = 12;
+            this.L_Playername.Text = "--";
             // 
             // BUT_Copy
             // 
@@ -250,7 +318,7 @@
             this.TabServer.Location = new System.Drawing.Point(4, 22);
             this.TabServer.Name = "TabServer";
             this.TabServer.Padding = new System.Windows.Forms.Padding(3);
-            this.TabServer.Size = new System.Drawing.Size(567, 177);
+            this.TabServer.Size = new System.Drawing.Size(567, 183);
             this.TabServer.TabIndex = 0;
             this.TabServer.Text = "Server";
             this.TabServer.UseVisualStyleBackColor = true;
@@ -384,74 +452,6 @@
             this.Set_HP.UseVisualStyleBackColor = true;
             this.Set_HP.Click += new System.EventHandler(this.Set_HP_Click);
             // 
-            // L_Playername
-            // 
-            this.L_Playername.AutoSize = true;
-            this.L_Playername.Location = new System.Drawing.Point(6, 3);
-            this.L_Playername.Name = "L_Playername";
-            this.L_Playername.Size = new System.Drawing.Size(13, 13);
-            this.L_Playername.TabIndex = 12;
-            this.L_Playername.Text = "--";
-            // 
-            // numTeleportLenght
-            // 
-            this.numTeleportLenght.Location = new System.Drawing.Point(94, 128);
-            this.numTeleportLenght.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numTeleportLenght.Minimum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            -2147483648});
-            this.numTeleportLenght.Name = "numTeleportLenght";
-            this.numTeleportLenght.Size = new System.Drawing.Size(120, 20);
-            this.numTeleportLenght.TabIndex = 14;
-            this.numTeleportLenght.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // lJumpdistance
-            // 
-            this.lJumpdistance.AutoSize = true;
-            this.lJumpdistance.Location = new System.Drawing.Point(6, 132);
-            this.lJumpdistance.Name = "lJumpdistance";
-            this.lJumpdistance.Size = new System.Drawing.Size(82, 13);
-            this.lJumpdistance.TabIndex = 15;
-            this.lJumpdistance.Text = "Teleport Länge:";
-            // 
-            // lDesc
-            // 
-            this.lDesc.AutoSize = true;
-            this.lDesc.Location = new System.Drawing.Point(6, 151);
-            this.lDesc.Name = "lDesc";
-            this.lDesc.Size = new System.Drawing.Size(377, 26);
-            this.lDesc.TabIndex = 16;
-            this.lDesc.Text = "Alt+ Pfeiltaste oder Leertaste (Anhand der Himmelsrichtung nicht Sichtrichtung)\r\n" +
-    "Strg + Pfeiltaste oder Leertaste  für entgegengesetzte Richtung";
-            // 
-            // lBlickRichtung
-            // 
-            this.lBlickRichtung.AutoSize = true;
-            this.lBlickRichtung.Location = new System.Drawing.Point(548, 164);
-            this.lBlickRichtung.Name = "lBlickRichtung";
-            this.lBlickRichtung.Size = new System.Drawing.Size(13, 13);
-            this.lBlickRichtung.TabIndex = 17;
-            this.lBlickRichtung.Text = "--";
-            // 
-            // lBlickbesch
-            // 
-            this.lBlickbesch.AutoSize = true;
-            this.lBlickbesch.Location = new System.Drawing.Point(446, 164);
-            this.lBlickbesch.Name = "lBlickbesch";
-            this.lBlickbesch.Size = new System.Drawing.Size(96, 13);
-            this.lBlickbesch.TabIndex = 18;
-            this.lBlickbesch.Text = "Blickrichtungswert:";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,13 +470,13 @@
             this.tabControl1.ResumeLayout(false);
             this.TabClient.ResumeLayout(false);
             this.TabClient.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTeleportLenght)).EndInit();
             this.TabServer.ResumeLayout(false);
             this.TabServer.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSetHP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numTeleportLenght)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
