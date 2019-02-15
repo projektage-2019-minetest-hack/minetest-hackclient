@@ -30,6 +30,11 @@ namespace HackClient
             RegisterHotKey(this.Handle, mActionHotKeyIDUp, 1, (int)Keys.Up);
             RegisterHotKey(this.Handle, mActionHotKeyIDDown, 1, (int)Keys.Down);
             RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, 1, (int)Keys.Space);
+            RegisterHotKey(this.Handle, mActionHotKeyIDLeft, 3, (int)Keys.Left);
+            RegisterHotKey(this.Handle, mActionHotKeyIDRight, 3, (int)Keys.Right);
+            RegisterHotKey(this.Handle, mActionHotKeyIDUp, 3, (int)Keys.Up);
+            RegisterHotKey(this.Handle, mActionHotKeyIDDown, 3, (int)Keys.Down);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, 3, (int)Keys.Space);
 
         }
         const int mActionHotKeyIDLeft = 1;
@@ -37,6 +42,11 @@ namespace HackClient
         const int mActionHotKeyIDUp = 3;
         const int mActionHotKeyIDDown = 4;
         const int mActionHotKeyIDSPACE = 5;
+        const int mActionHotKeyIDSTRLeft = 11;
+        const int mActionHotKeyIDSTRRight = 12;
+        const int mActionHotKeyIDSTRUp = 13;
+        const int mActionHotKeyIDSTRDown = 14;
+        const int mActionHotKeyIDSTRSPACE = 15;
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWd, int id, int fsModifiers, int key);
         [DllImport("user32.dll")]
@@ -219,7 +229,6 @@ namespace HackClient
 
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDLeft)
             {
-
                 string newX = (Convert.ToDouble(lXValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
                 mHandler.setPosition(newX, lYValue.Text, lZValue.Text);
             }
@@ -245,9 +254,36 @@ namespace HackClient
             }
 
 
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDSTRLeft)
+            {
+                string newX = (Convert.ToDouble(lXValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(newX, lYValue.Text, lZValue.Text);
+            }
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDSTRRight)
+            {
+                string newX = (Convert.ToDouble(lXValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(newX, lYValue.Text, lZValue.Text);
+            }
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDSTRUp)
+            {
+                string newZ = (Convert.ToDouble(lZValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(lXValue.Text, lYValue.Text, newZ);
+            }
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDSTRDown)
+            {
+                string newZ = (Convert.ToDouble(lZValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(lXValue.Text, lYValue.Text, newZ);
+            }
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDSTRSPACE)
+            {
+                string newY = (Convert.ToDouble(lYValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(lXValue.Text, newY, lZValue.Text);
+            }
+
+
             base.WndProc(ref m);
         }
-        /*  //
+        /*  //STR
         private void checkTeleport_CheckedChanged(object sender, EventArgs e)
         {
             if(checkTeleport.Checked)
