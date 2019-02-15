@@ -25,18 +25,20 @@ namespace HackClient
         public Form1()
         {
             InitializeComponent();
-            RegisterHotKey(this.Handle, mActionHotKeyIDLeft, 1, (int)Keys.Left);
-            RegisterHotKey(this.Handle, mActionHotKeyIDRight, 1, (int)Keys.Right);
-            RegisterHotKey(this.Handle, mActionHotKeyIDUp, 1, (int)Keys.Up);
-            RegisterHotKey(this.Handle, mActionHotKeyIDDown, 1, (int)Keys.Down);
-            RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, 1, (int)Keys.Space);
-            RegisterHotKey(this.Handle, mActionHotKeyIDSTRLeft, 3, (int)Keys.Left);
-            RegisterHotKey(this.Handle, mActionHotKeyIDSTRRight, 3, (int)Keys.Right);
-            RegisterHotKey(this.Handle, mActionHotKeyIDSTRUp, 3, (int)Keys.Up);
-            RegisterHotKey(this.Handle, mActionHotKeyIDSTRDown, 3, (int)Keys.Down);
-            RegisterHotKey(this.Handle, mActionHotKeyIDSTRSPACE, 3, (int)Keys.Space);
+            RegisterHotKey(this.Handle, mActionHotKeyIDLeft, alt, (int)Keys.Left);
+            RegisterHotKey(this.Handle, mActionHotKeyIDRight, alt, (int)Keys.Right);
+            RegisterHotKey(this.Handle, mActionHotKeyIDUp, alt, (int)Keys.Up);
+            RegisterHotKey(this.Handle, mActionHotKeyIDDown, alt, (int)Keys.Down);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, alt, (int)Keys.Space);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRLeft, strg, (int)Keys.Left);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRRight, strg, (int)Keys.Right);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRUp, strg, (int)Keys.Up);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRDown, strg, (int)Keys.Down);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRSPACE, strg, (int)Keys.Space);
 
         }
+        const int alt = 1;
+        const int strg = 2;
         const int mActionHotKeyIDLeft = 1;
         const int mActionHotKeyIDRight = 2;
         const int mActionHotKeyIDUp = 3;
