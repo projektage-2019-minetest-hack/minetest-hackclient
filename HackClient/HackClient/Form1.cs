@@ -156,6 +156,7 @@ namespace HackClient
 
 
             mHandler.setChosenPlayer(-1);
+            L_Playername.Text = mHandler.getName();
         }
 
         private void ComboPlayer_SelectedIndexChanged(object sender, EventArgs e)

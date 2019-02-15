@@ -32,6 +32,7 @@
             this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabClient = new System.Windows.Forms.TabPage();
+            this.BUT_Copy = new System.Windows.Forms.Button();
             this.E_Z = new System.Windows.Forms.TextBox();
             this.E_Y = new System.Windows.Forms.TextBox();
             this.BUT_SetPos = new System.Windows.Forms.Button();
@@ -44,19 +45,19 @@
             this.lx = new System.Windows.Forms.Label();
             this.lPos = new System.Windows.Forms.Label();
             this.TabServer = new System.Windows.Forms.TabPage();
+            this.lInfo = new System.Windows.Forms.Label();
+            this.BUT_Ghost = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.L_Anzahl = new System.Windows.Forms.Label();
             this.numPlayer = new System.Windows.Forms.NumericUpDown();
-            this.ComboPlayer = new System.Windows.Forms.ComboBox();
             this.BUT_PlayerLoad = new System.Windows.Forms.Button();
             this.Check_Immortal = new System.Windows.Forms.CheckBox();
+            this.ComboPlayer = new System.Windows.Forms.ComboBox();
             this.L_HpValue = new System.Windows.Forms.Label();
             this.LHP = new System.Windows.Forms.Label();
             this.numSetHP = new System.Windows.Forms.NumericUpDown();
             this.Set_HP = new System.Windows.Forms.Button();
-            this.BUT_Copy = new System.Windows.Forms.Button();
-            this.BUT_Ghost = new System.Windows.Forms.Button();
-            this.lInfo = new System.Windows.Forms.Label();
+            this.L_Playername = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabClient.SuspendLayout();
@@ -99,6 +100,7 @@
             // 
             // TabClient
             // 
+            this.TabClient.Controls.Add(this.L_Playername);
             this.TabClient.Controls.Add(this.BUT_Copy);
             this.TabClient.Controls.Add(this.E_Z);
             this.TabClient.Controls.Add(this.E_Y);
@@ -118,6 +120,16 @@
             this.TabClient.TabIndex = 1;
             this.TabClient.Text = "Client";
             this.TabClient.UseVisualStyleBackColor = true;
+            // 
+            // BUT_Copy
+            // 
+            this.BUT_Copy.Location = new System.Drawing.Point(348, 61);
+            this.BUT_Copy.Name = "BUT_Copy";
+            this.BUT_Copy.Size = new System.Drawing.Size(163, 23);
+            this.BUT_Copy.TabIndex = 11;
+            this.BUT_Copy.Text = "Kopiere von aktueller Position";
+            this.BUT_Copy.UseVisualStyleBackColor = true;
+            this.BUT_Copy.Click += new System.EventHandler(this.BUT_Copy_Click);
             // 
             // E_Z
             // 
@@ -207,7 +219,7 @@
             // lPos
             // 
             this.lPos.AutoSize = true;
-            this.lPos.Location = new System.Drawing.Point(15, 13);
+            this.lPos.Location = new System.Drawing.Point(6, 34);
             this.lPos.Name = "lPos";
             this.lPos.Size = new System.Drawing.Size(44, 13);
             this.lPos.TabIndex = 0;
@@ -231,6 +243,25 @@
             this.TabServer.TabIndex = 0;
             this.TabServer.Text = "Server";
             this.TabServer.UseVisualStyleBackColor = true;
+            // 
+            // lInfo
+            // 
+            this.lInfo.AutoSize = true;
+            this.lInfo.Location = new System.Drawing.Point(223, 87);
+            this.lInfo.Name = "lInfo";
+            this.lInfo.Size = new System.Drawing.Size(328, 13);
+            this.lInfo.TabIndex = 29;
+            this.lInfo.Text = "Zum beenden Hp anpassen. Funktioniert nicht wenn Imortal aktiv ist";
+            // 
+            // BUT_Ghost
+            // 
+            this.BUT_Ghost.Location = new System.Drawing.Point(142, 84);
+            this.BUT_Ghost.Name = "BUT_Ghost";
+            this.BUT_Ghost.Size = new System.Drawing.Size(75, 23);
+            this.BUT_Ghost.TabIndex = 28;
+            this.BUT_Ghost.Text = "Make Ghost";
+            this.BUT_Ghost.UseVisualStyleBackColor = true;
+            this.BUT_Ghost.Click += new System.EventHandler(this.BUT_Ghost_Click);
             // 
             // panel1
             // 
@@ -276,16 +307,6 @@
             0,
             0});
             // 
-            // ComboPlayer
-            // 
-            this.ComboPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboPlayer.FormattingEnabled = true;
-            this.ComboPlayer.Location = new System.Drawing.Point(15, 84);
-            this.ComboPlayer.Name = "ComboPlayer";
-            this.ComboPlayer.Size = new System.Drawing.Size(121, 21);
-            this.ComboPlayer.TabIndex = 22;
-            this.ComboPlayer.SelectedIndexChanged += new System.EventHandler(this.ComboPlayer_SelectedIndexChanged);
-            // 
             // BUT_PlayerLoad
             // 
             this.BUT_PlayerLoad.Location = new System.Drawing.Point(258, 8);
@@ -306,6 +327,16 @@
             this.Check_Immortal.Text = "Imortal";
             this.Check_Immortal.UseVisualStyleBackColor = true;
             this.Check_Immortal.CheckedChanged += new System.EventHandler(this.Check_Immortal_CheckedChanged);
+            // 
+            // ComboPlayer
+            // 
+            this.ComboPlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboPlayer.FormattingEnabled = true;
+            this.ComboPlayer.Location = new System.Drawing.Point(15, 84);
+            this.ComboPlayer.Name = "ComboPlayer";
+            this.ComboPlayer.Size = new System.Drawing.Size(121, 21);
+            this.ComboPlayer.TabIndex = 22;
+            this.ComboPlayer.SelectedIndexChanged += new System.EventHandler(this.ComboPlayer_SelectedIndexChanged);
             // 
             // L_HpValue
             // 
@@ -342,34 +373,14 @@
             this.Set_HP.UseVisualStyleBackColor = true;
             this.Set_HP.Click += new System.EventHandler(this.Set_HP_Click);
             // 
-            // BUT_Copy
+            // L_Playername
             // 
-            this.BUT_Copy.Location = new System.Drawing.Point(348, 61);
-            this.BUT_Copy.Name = "BUT_Copy";
-            this.BUT_Copy.Size = new System.Drawing.Size(163, 23);
-            this.BUT_Copy.TabIndex = 11;
-            this.BUT_Copy.Text = "Kopiere von aktueller Position";
-            this.BUT_Copy.UseVisualStyleBackColor = true;
-            this.BUT_Copy.Click += new System.EventHandler(this.BUT_Copy_Click);
-            // 
-            // BUT_Ghost
-            // 
-            this.BUT_Ghost.Location = new System.Drawing.Point(142, 84);
-            this.BUT_Ghost.Name = "BUT_Ghost";
-            this.BUT_Ghost.Size = new System.Drawing.Size(75, 23);
-            this.BUT_Ghost.TabIndex = 28;
-            this.BUT_Ghost.Text = "Make Ghost";
-            this.BUT_Ghost.UseVisualStyleBackColor = true;
-            this.BUT_Ghost.Click += new System.EventHandler(this.BUT_Ghost_Click);
-            // 
-            // lInfo
-            // 
-            this.lInfo.AutoSize = true;
-            this.lInfo.Location = new System.Drawing.Point(223, 87);
-            this.lInfo.Name = "lInfo";
-            this.lInfo.Size = new System.Drawing.Size(328, 13);
-            this.lInfo.TabIndex = 29;
-            this.lInfo.Text = "Zum beenden Hp anpassen. Funktioniert nicht wenn Imortal aktiv ist";
+            this.L_Playername.AutoSize = true;
+            this.L_Playername.Location = new System.Drawing.Point(6, 3);
+            this.L_Playername.Name = "L_Playername";
+            this.L_Playername.Size = new System.Drawing.Size(13, 13);
+            this.L_Playername.TabIndex = 12;
+            this.L_Playername.Text = "--";
             // 
             // Form1
             // 
@@ -431,6 +442,7 @@
         private System.Windows.Forms.Button BUT_Copy;
         private System.Windows.Forms.Button BUT_Ghost;
         private System.Windows.Forms.Label lInfo;
+        private System.Windows.Forms.Label L_Playername;
     }
 }
 
