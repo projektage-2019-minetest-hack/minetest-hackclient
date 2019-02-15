@@ -36,6 +36,11 @@ namespace HackClient
             RegisterHotKey(this.Handle, mActionHotKeyIDSTRDown, strg, (int)Keys.Down);
             RegisterHotKey(this.Handle, mActionHotKeyIDSTRSPACE, strg, (int)Keys.Space);
 
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRW, strg, (int)Keys.W);
+            //RegisterHotKey(this.Handle, mActionHotKeyIDSTRA, strg, (int)Keys.A);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSTRS, strg, (int)Keys.S);
+            //RegisterHotKey(this.Handle, mActionHotKeyIDSTRD, strg, (int)Keys.D);
+
         }
         const int alt = 1;
         const int strg = 2;
@@ -49,6 +54,12 @@ namespace HackClient
         const int mActionHotKeyIDSTRUp = 13;
         const int mActionHotKeyIDSTRDown = 14;
         const int mActionHotKeyIDSTRSPACE = 15;
+        const int mActionHotKeyIDSTRW = 21;
+        //const int mActionHotKeyIDSTRA = 22;
+        const int mActionHotKeyIDSTRS = 23;
+        //const int mActionHotKeyIDSTRD = 24;
+
+
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWd, int id, int fsModifiers, int key);
         [DllImport("user32.dll")]
@@ -228,7 +239,7 @@ namespace HackClient
 
         protected override void WndProc(ref Message m)
         {
-
+            /*
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDLeft)
             {
                 string newX = (Convert.ToDouble(lXValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
@@ -281,6 +292,70 @@ namespace HackClient
                 string newY = (Convert.ToDouble(lYValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
                 mHandler.setPosition(lXValue.Text, newY, lZValue.Text);
             }
+            */
+            if (m.Msg == 0x0312)
+            {
+                string newX = "";
+                string newY = "";
+                string newZ = "";
+                switch (m.WParam.ToInt32())
+                {
+                                           
+                    case mActionHotKeyIDLeft:
+                        newX = (Convert.ToDouble(lXValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(newX, lYValue.Text, lZValue.Text);
+                        break;
+                    case mActionHotKeyIDRight:
+                        newX = (Convert.ToDouble(lXValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(newX, lYValue.Text, lZValue.Text);
+                        break;
+                    case mActionHotKeyIDUp:
+                        newZ = (Convert.ToDouble(lZValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(lXValue.Text, lYValue.Text, newZ);
+                        break;
+                    case mActionHotKeyIDDown:
+                        newZ = (Convert.ToDouble(lZValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(lXValue.Text, lYValue.Text, newZ);
+                        break;
+                    case mActionHotKeyIDSPACE:
+                        newY = (Convert.ToDouble(lYValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(lXValue.Text, newY, lZValue.Text);
+                        break;
+                    case mActionHotKeyIDSTRLeft:
+                        newX = (Convert.ToDouble(lXValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(newX, lYValue.Text, lZValue.Text);
+                        break;
+                    case mActionHotKeyIDSTRRight:
+                        newX = (Convert.ToDouble(lXValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(newX, lYValue.Text, lZValue.Text);
+                        break;
+                    case mActionHotKeyIDSTRUp:
+                        newZ = (Convert.ToDouble(lZValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(lXValue.Text, lYValue.Text, newZ);
+                        break;
+                    case mActionHotKeyIDSTRDown:
+                        newZ = (Convert.ToDouble(lZValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(lXValue.Text, lYValue.Text, newZ);
+                        break;
+                    case mActionHotKeyIDSTRSPACE:
+                        newY = (Convert.ToDouble(lYValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                        mHandler.setPosition(lXValue.Text, newY, lZValue.Text);
+                        break;
+                    case mActionHotKeyIDSTRW:
+
+                        //mHandler.move(Convert.ToDouble(numTeleportLenght.Value));
+                        break;
+                    case mActionHotKeyIDSTRS:
+     
+                        //mHandler.move(Convert.ToDouble(numTeleportLenght.Value)*-1);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+
 
 
             base.WndProc(ref m);
