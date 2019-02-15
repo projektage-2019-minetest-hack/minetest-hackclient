@@ -15,7 +15,7 @@ namespace HackClient
 {
     public partial class Form1 : Form
     {
-        
+
         //public Mem mMemory = new Mem();
         private MemoryHandler mHandler = new MemoryHandler();
         //Player mPlayer = new Player();
@@ -25,11 +25,11 @@ namespace HackClient
         public Form1()
         {
             InitializeComponent();
-            RegisterHotKey(this.Handle, mActionHotKeyIDLeft, 0, (int)Keys.Left);
-            RegisterHotKey(this.Handle, mActionHotKeyIDRight, 0, (int)Keys.Right);
-            RegisterHotKey(this.Handle, mActionHotKeyIDUp, 0, (int)Keys.Up);
-            RegisterHotKey(this.Handle, mActionHotKeyIDDown, 0, (int)Keys.Down);
-            RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, 0, (int)Keys.Space);
+            RegisterHotKey(this.Handle, mActionHotKeyIDLeft, 1, (int)Keys.Left);
+            RegisterHotKey(this.Handle, mActionHotKeyIDRight, 1, (int)Keys.Right);
+            RegisterHotKey(this.Handle, mActionHotKeyIDUp, 1, (int)Keys.Up);
+            RegisterHotKey(this.Handle, mActionHotKeyIDDown, 1, (int)Keys.Down);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, 1, (int)Keys.Space);
 
         }
         const int mActionHotKeyIDLeft = 1;
@@ -60,7 +60,7 @@ namespace HackClient
                         {
                             if (tabControl1.SelectedIndex == 0)
                             {
-                                string[] pos= mHandler.getPosition();
+                                string[] pos = mHandler.getPosition();
                                 lXValue.Text = pos[0];
                                 lYValue.Text = pos[1];
                                 lZValue.Text = pos[2];
@@ -91,15 +91,15 @@ namespace HackClient
                 WorkerSupportsCancellation = true
             };
             LoadPlayerListwithScan();
-            
-            
-                
-            
-            
+
+
+
+
+
             backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
             backgroundWorker.ProgressChanged += BackgroundWorkerOnProgressChanged;
             backgroundWorker.RunWorkerAsync();
-            
+
             /*
             if (ComboPlayer.Items.Count > 0)
             {
@@ -145,7 +145,7 @@ namespace HackClient
         //    mHandler.playerlist[ComboPlayer.SelectedIndex].offsetx= E_X_Offset.Text;
         //    mHandler.playerlist[ComboPlayer.SelectedIndex].offsety = E_Y_Offset.Text;
         //    mHandler.playerlist[ComboPlayer.SelectedIndex].offsetz = E_Z_Offset.Text;
-          
+
         //}
 
         private void BUT_PlayerLoad_Click(object sender, EventArgs e)
@@ -166,7 +166,7 @@ namespace HackClient
 
             for (int i = 0; i < mHandler.playerlist.Count; i++)
             {
-                ComboPlayer.Items.Add(/*mHandler.playerlist[i].name*/ "Player "+ i);//Später name aus dem jeweiligen Player
+                ComboPlayer.Items.Add(/*mHandler.playerlist[i].name*/ "Player " + i);//Später name aus dem jeweiligen Player
             }
 
 
@@ -197,7 +197,7 @@ namespace HackClient
             {
                 mHandler.setChosenPlayer(ComboPlayer.SelectedIndex);
             }
-            
+
         }
 
         private void BUT_SetPos_Click(object sender, EventArgs e)
@@ -216,31 +216,61 @@ namespace HackClient
         {
             mHandler.ghostmode();
         }
-        
+
         protected override void WndProc(ref Message m)
         {
+
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDLeft)
             {
-                //Do something here, the key pressed matches our listener
+
+                string newX = (Convert.ToDouble(lXValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(newX, lYValue.Text, lZValue.Text);
             }
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDRight)
             {
-                //Do something here, the key pressed matches our listener
+                string newX = (Convert.ToDouble(lXValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(newX, lYValue.Text, lZValue.Text);
             }
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDUp)
             {
-                //Do something here, the key pressed matches our listener
+                string newZ = (Convert.ToDouble(lZValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(lXValue.Text, lYValue.Text, newZ);
             }
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDDown)
             {
-                //Do something here, the key pressed matches our listener
+                string newZ = (Convert.ToDouble(lZValue.Text) - Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(lXValue.Text, lYValue.Text, newZ);
             }
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == mActionHotKeyIDSPACE)
             {
-                //Do something here, the key pressed matches our listener
+                string newY = (Convert.ToDouble(lYValue.Text) + Convert.ToDouble(numTeleportLenght.Value)).ToString();
+                mHandler.setPosition(lXValue.Text, newY, lZValue.Text);
             }
+
+
             base.WndProc(ref m);
         }
+        /*  //
+        private void checkTeleport_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkTeleport.Checked)
+            {
+                 RegisterHotKey(this.Handle, mActionHotKeyIDLeft, 0, (int)Keys.Left);
+            RegisterHotKey(this.Handle, mActionHotKeyIDRight, 0, (int)Keys.Right);
+            RegisterHotKey(this.Handle, mActionHotKeyIDUp, 0, (int)Keys.Up);
+            RegisterHotKey(this.Handle, mActionHotKeyIDDown, 0, (int)Keys.Down);
+            RegisterHotKey(this.Handle, mActionHotKeyIDSPACE, 0, (int)Keys.Space);
+            }
+            else
+            {
+                UnregisterHotKey(this.Handle, mActionHotKeyIDLeft);
+                UnregisterHotKey(this.Handle, mActionHotKeyIDRight);
+                UnregisterHotKey(this.Handle, mActionHotKeyIDUp);
+                UnregisterHotKey(this.Handle, mActionHotKeyIDDown);
+                UnregisterHotKey(this.Handle, mActionHotKeyIDSPACE);
 
+            }
+        }
+        */
     }
 }

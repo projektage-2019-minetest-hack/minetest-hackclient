@@ -58,6 +58,9 @@
             this.numSetHP = new System.Windows.Forms.NumericUpDown();
             this.Set_HP = new System.Windows.Forms.Button();
             this.L_Playername = new System.Windows.Forms.Label();
+            this.numTeleportLenght = new System.Windows.Forms.NumericUpDown();
+            this.lJumpdistance = new System.Windows.Forms.Label();
+            this.lDesc = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabClient.SuspendLayout();
@@ -65,6 +68,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSetHP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTeleportLenght)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -100,6 +104,9 @@
             // 
             // TabClient
             // 
+            this.TabClient.Controls.Add(this.lDesc);
+            this.TabClient.Controls.Add(this.lJumpdistance);
+            this.TabClient.Controls.Add(this.numTeleportLenght);
             this.TabClient.Controls.Add(this.L_Playername);
             this.TabClient.Controls.Add(this.BUT_Copy);
             this.TabClient.Controls.Add(this.E_Z);
@@ -382,6 +389,46 @@
             this.L_Playername.TabIndex = 12;
             this.L_Playername.Text = "--";
             // 
+            // numTeleportLenght
+            // 
+            this.numTeleportLenght.Location = new System.Drawing.Point(94, 128);
+            this.numTeleportLenght.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numTeleportLenght.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.numTeleportLenght.Name = "numTeleportLenght";
+            this.numTeleportLenght.Size = new System.Drawing.Size(120, 20);
+            this.numTeleportLenght.TabIndex = 14;
+            this.numTeleportLenght.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // lJumpdistance
+            // 
+            this.lJumpdistance.AutoSize = true;
+            this.lJumpdistance.Location = new System.Drawing.Point(6, 132);
+            this.lJumpdistance.Name = "lJumpdistance";
+            this.lJumpdistance.Size = new System.Drawing.Size(82, 13);
+            this.lJumpdistance.TabIndex = 15;
+            this.lJumpdistance.Text = "Teleport Länge:";
+            // 
+            // lDesc
+            // 
+            this.lDesc.AutoSize = true;
+            this.lDesc.Location = new System.Drawing.Point(220, 132);
+            this.lDesc.Name = "lDesc";
+            this.lDesc.Size = new System.Drawing.Size(142, 13);
+            this.lDesc.TabIndex = 16;
+            this.lDesc.Text = "Alt+ Pfeiltaste oder Leertaste";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,6 +453,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPlayer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSetHP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTeleportLenght)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,6 +491,9 @@
         private System.Windows.Forms.Button BUT_Ghost;
         private System.Windows.Forms.Label lInfo;
         private System.Windows.Forms.Label L_Playername;
+        private System.Windows.Forms.Label lJumpdistance;
+        private System.Windows.Forms.NumericUpDown numTeleportLenght;
+        private System.Windows.Forms.Label lDesc;
     }
 }
 
