@@ -90,7 +90,7 @@ namespace HackClient
                 WorkerReportsProgress = true,
                 WorkerSupportsCancellation = true
             };
-            LoadPlayerListwithScan();
+            Scan();
 
 
 
@@ -116,7 +116,7 @@ namespace HackClient
         private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mHandler = new MemoryHandler();
-            LoadPlayerListwithScan();
+            Scan();
         }
 
         private void Set_HP_Click(object sender, EventArgs e)
@@ -150,10 +150,10 @@ namespace HackClient
 
         private void BUT_PlayerLoad_Click(object sender, EventArgs e)
         {
-            LoadPlayerListwithScan();
+            Scan();
         }
 
-        private void LoadPlayerListwithScan()
+        private void Scan()
         {
 
             ComboPlayer.Items.Clear();
@@ -182,10 +182,7 @@ namespace HackClient
             }
         }
 
-        private void BUT_SetName_Click(object sender, EventArgs e)
-        {
-            mHandler.SetName();
-        }
+
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
