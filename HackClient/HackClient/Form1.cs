@@ -343,11 +343,11 @@ namespace HackClient
                         break;
                     case mActionHotKeyIDSTRW:
 
-                        //mHandler.move(Convert.ToDouble(numTeleportLenght.Value));
+                        mHandler.move(Convert.ToDouble(numTeleportLenght.Value));
                         break;
                     case mActionHotKeyIDSTRS:
      
-                        //mHandler.move(Convert.ToDouble(numTeleportLenght.Value)*-1);
+                        mHandler.move(Convert.ToDouble(numTeleportLenght.Value)*-1);
                         break;
 
                     default:
